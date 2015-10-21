@@ -1,0 +1,7 @@
+<h1>Pages#profile</h1>
+<p>Find me in app/views/pages/profile.html.erb</p>
+
+<% if current_user %>
+  <h1>Signed in as: <%= current_user.name %>
+  <%= link_to "Sign Out", "sign_out", method: :delete %>
+<% end %>
