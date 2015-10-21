@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020143304) do
+ActiveRecord::Schema.define(version: 20151021151538) do
 
   create_table "exercises", force: :cascade do |t|
     t.string   "name"
@@ -31,10 +31,9 @@ ActiveRecord::Schema.define(version: 20151020143304) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "gender"
-    t.string   "email"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
     t.integer  "c_bodyweight"
     t.integer  "c_bench"
     t.integer  "c_squat"

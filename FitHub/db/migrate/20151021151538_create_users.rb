@@ -1,10 +1,9 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.string :first_name
-      t.string :last_name
-      t.string :gender
-      t.string :email
+      t.string :provider
+      t.string :uid
+      t.string :name
       t.integer :c_bodyweight
       t.integer :c_bench
       t.integer :c_squat
@@ -13,7 +12,6 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :t_bench
       t.integer :t_squat
       t.integer :t_deadlift
-
       t.timestamps null: false
     end
   end
