@@ -13,8 +13,8 @@ class PagesController < ApplicationController
   	else
   		redirect_to root_url
   	end
-  	
   end
+  
   private
 
   def set_auth

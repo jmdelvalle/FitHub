@@ -1,8 +1,6 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
-
+<h1>Welcome To FitHub</h1>
 <% if current_user %>
   <h2>Signed in as: <%= current_user.name %></h2>
 <% else %>
-  <%= link_to "Facebook Login", "auth/facebook" %>
+  <%= link_to "Login With Facebook", "auth/facebook" %>
 <% end %>

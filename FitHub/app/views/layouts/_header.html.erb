@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="navbar-header">
 
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="#">FitHub</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
@@ -12,9 +12,9 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             <%= current_user.name %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
+            <li><%= link_to "My Profile", :controller => :pages, :action => :profile %></li>
+            <li><a href="#">Workouts</a></li>
+            <li><a href="#">Create a New Workout</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#"><%= link_to "Sign Out", sign_out_path, :method => :delete %></a></li>
           </ul>
