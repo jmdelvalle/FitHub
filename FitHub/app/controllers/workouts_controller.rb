@@ -1,8 +1,16 @@
 class WorkoutsController < ApplicationController
+  before_action :authenticate_user, :current_user
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
 
   # GET /workouts
   # GET /workouts.json
+
+  def authenticate_user
+    if current_user.nil?
+      redirect_to root_url
+    end
+  end
+
   def index
     @workouts = Workout.all
   end
@@ -25,7 +33,7 @@ class WorkoutsController < ApplicationController
   # POST /workouts.json
   def create
     @workout = Workout.new(workout_params)
-
+    @workout.user = current_user
     respond_to do |format|
       if @workout.save
         format.html { redirect_to @workout, notice: 'Workout was successfully created.' }

@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>User ID</th>
       <th>Name</th>
       <th>Category</th>
       <th>Description</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @workouts.each do |workout| %>
       <tr>
+        <td><%= workout.user_id %>
         <td><%= workout.name %></td>
         <td><%= workout.category %></td>
         <td><%= workout.description %></td>
