@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'pages#index'
 
-  get 'pages/profile'
-  get 'pages/home'
+  get 'users/profile'
+  get 'users/home'
 
   get 'auth/:provider/callback', to: 'sessions#create'
 
