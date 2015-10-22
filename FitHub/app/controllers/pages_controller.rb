@@ -7,6 +7,14 @@ class PagesController < ApplicationController
   def profile
   end
 
+  def home
+  	if current_user
+  		render 'home'
+  	else
+  		redirect_to root_url
+  	end
+  	
+  end
   private
 
   def set_auth
