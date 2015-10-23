@@ -1,8 +1,26 @@
-<p id="notice"><%= notice %></p>
-<h1>USERRRR profile</h1>
-<p>Find me in app/views/users/profile.html.erb</p>
-
-<% if current_user %>
-  <h1>Signed in as: <%= current_user.name %>
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+    <p align="center">
+      <%= notice %>
+    </p>
+  </div>
 <% end %>
 
+<div align="center"><h1><%= current_user.name %></h1><br></div>
+
+<div align="center">
+  <h2>Your Personal Stats</h2>
+  <h5>Current Body Weight: <%= current_user.c_bodyweight %> lbs<br></h5>
+  <h5>Current Bench Weight: <%= current_user.c_bench %> lbs<br></h5>
+  <h5>Current Squat Weight: <%= current_user.c_squat %> lbs<br></h5>
+  <h5>Current Deadlift Weight: <%= current_user.c_deadlift %> lbs<br></h5>
+</div><br><br>
+
+<div align="center">
+  <h2>Your Future Goals</h2>
+  <h5>Target Body Weight: <%= current_user.t_bodyweight %> lbs<br></h5>
+  <h5>Target Bench Weight: <%= current_user.t_bench %> lbs<br></h5>
+  <h5>Target Squat Weight: <%= current_user.t_squat %> lbs<br></h5>
+  <h5>Target Deadlift Weight: <%= current_user.t_deadlift %> lbs<br></h5><br>
+  <h3><%= link_to "Edit Profile",  edit_user_path(current_user.id) %></h3>
+</div>

@@ -17,16 +17,13 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
-  def profile
-  end
 
-  # GET /users/new
-  def new
-    @user = User.new
+  def profile
   end
 
   # GET /users/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /users
@@ -49,9 +46,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+      if current_user.update(user_params)
+        format.html { redirect_to users_profile_path, notice: 'You Just Updated Your Profile!' }
+        format.json { render :profile, status: :ok, location: @user }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -71,11 +68,11 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-   
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params[:user]
+      params.require(:user).permit(:c_bodyweight, :c_bench, :c_squat, :c_deadlift, :t_bodyweight, :t_bench, :t_squat, :t_deadlift)
     end
 
     def set_auth

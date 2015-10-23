@@ -2,6 +2,7 @@
   <div class="container-fluid">
     <div class="navbar-header">
 
+
       <a class="navbar-brand" <%= link_to "Fithub", root_url%> </a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -14,7 +15,7 @@
           <ul class="dropdown-menu">
             <li><%= link_to "My Profile", :controller => :users, :action => :profile %></li>
             <li><%= link_to "Workouts", :controller => :workouts, :action => :create %></li>
-            <li><%= link_to "Create a New Workout", :controller => :workouts, :action => :new %></li>
+            <li><%= link_to "Create a New Workout", new_workout_path%></li>
             <li role="separator" class="divider"></li>
             <li><a href="#"><%= link_to "Sign Out", sign_out_path, :method => :delete %></a></li>
           </ul>
