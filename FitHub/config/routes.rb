@@ -3,11 +3,10 @@ Rails.application.routes.draw do
 
   get 'users/profile'
   get 'users/home'
-
   get 'auth/:provider/callback', to: 'sessions#create'
 
   delete 'sign_out', to: 'sessions#destroy'
-
+  resources :exercises
   resources :workouts
 
   # The priority is based upon order of creation: first created -> highest priority.
