@@ -9,7 +9,7 @@
 
 JSON.load(File.read("#{Dir.pwd}/lib/assets/workout.json")).each do |exercise|
 	exercise.each_pair do |name, details|
-		case 
+		case
 			when details["Main Muscle Worked"] == " Middle Back" || details["Main Muscle Worked"] == " Lower Back" || details["Main Muscle Worked"] == " Lats" || details["Main Muscle Worked"] == " Traps" || details["Main Muscle Worked"] == " Neck"
 				group = "Back"
 			when details["Main Muscle Worked"] == " Chest"
