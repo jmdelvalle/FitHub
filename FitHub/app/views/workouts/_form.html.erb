@@ -25,43 +25,38 @@
     <%= f.label :challenges %><br>
     <%= f.text_area :challenges %>
   </div>
-  <h1>Arm Exercises</h1>
-    <%= collection_check_boxes(:exercise, :name, Exercise.where("muscle_group = 'Arms'"), :id, :name) do |b| %>
-    <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-    <% end %>
-    </div>
-    <div class="well">
-    <h1>Leg Exercises</h1>
-    <%= collection_check_boxes(:exercise, :name, Exercise.where("muscle_group = 'Legs'"), :id, :name) do |b| %>
-    <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-    <% end %>
-    </div>
-    <div class="well">
+
+
+    <h1>Arm Exercises</h1>
+      <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Arms'"), :id, :name) do |b| %>
+      <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
+      <% end %>
+
+    <h1>Legs Exercises</h1>
+      <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Legs'"), :id, :name) do |b| %>
+      <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
+      <% end %>
+
     <h1>Back Exercises</h1>
-    <%= collection_check_boxes(:exercise, :name, Exercise.where("muscle_group = 'Back'"), :id, :name) do |b| %>
-    <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-    <% end %>
-    </div>
-    <div class="well">
-    <h1>Shoulder Exercise</h1>
-    <%= collection_check_boxes(:exercise, :name, Exercise.where("muscle_group = 'Shoulders'"), :id, :name) do |b| %>
-    <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-    <% end %>
-    </div>
-    <div="well">
+      <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Back'"), :id, :name) do |b| %>
+      <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
+      <% end %>
+
+    <h1>Shoulder Exercises</h1>
+      <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Shoulders'"), :id, :name) do |b| %>
+      <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
+      <% end %>
+
     <h1>Chest Exercises</h1>
-    <%= collection_check_boxes(:exercise, :name, Exercise.where("muscle_group = 'Chest'"), :id, :name) do |b| %>
-    <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-    <% end %>
-    </div> 
-    <div class="well">
+      <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Chest'"), :id, :name) do |b| %>
+      <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
+      <% end %>
+
     <h1>Abdominal Exercises</h1>
-    <%= collection_check_boxes(:exercise, :name, Exercise.where("muscle_group = 'Abs'"), :id, :name) do |b| %>
-    <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-    <% end %>
-    </div>
-  </tbody>
-</table>
+      <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Abs'"), :id, :name) do |b| %>
+      <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
+      <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -35,8 +35,9 @@ class WorkoutsController < ApplicationController
     @workout = Workout.new(workout_params)
     @workout.user = current_user
     respond_to do |format|
+      binding.pry
+
       if @workout.save
-        binding.pry
         format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
         format.json { render :show, status: :created, location: @workout }
       else
