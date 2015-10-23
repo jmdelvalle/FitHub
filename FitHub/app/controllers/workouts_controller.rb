@@ -36,6 +36,7 @@ class WorkoutsController < ApplicationController
     @workout.user = current_user
     respond_to do |format|
       if @workout.save
+        binding.pry
         format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
         format.json { render :show, status: :created, location: @workout }
       else
@@ -77,6 +78,6 @@ class WorkoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
-      params.require(:workout).permit(:name, :category, :description, :challenges)
+      params.require(:workout).permit(:name, :category, :description, :challenges, :exercise_ids => [])
     end
 end

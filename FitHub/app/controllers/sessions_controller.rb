@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     session[:omniatuh] = nil
+    reset_session
     redirect_to root_url
   end
 end
