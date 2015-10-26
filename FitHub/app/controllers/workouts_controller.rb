@@ -15,6 +15,10 @@ class WorkoutsController < ApplicationController
     @workouts = Workout.all
   end
 
+  def my_workouts
+    @my_workouts = current_user.workouts
+  end
+
   # GET /workouts/1
   # GET /workouts/1.json
   def show
@@ -35,8 +39,8 @@ class WorkoutsController < ApplicationController
     @workout = Workout.new(workout_params)
     @workout.user = current_user
     respond_to do |format|
+
       if @workout.save
-        binding.pry
         format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
         format.json { render :show, status: :created, location: @workout }
       else
@@ -65,7 +69,7 @@ class WorkoutsController < ApplicationController
   def destroy
     @workout.destroy
     respond_to do |format|
-      format.html { redirect_to workouts_url, notice: 'Workout was successfully destroyed.' }
+      format.html { redirect_to my_workouts_url, notice: 'Workout was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

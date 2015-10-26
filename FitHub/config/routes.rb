@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :exercises
   resources :users
   resources :workouts
+  get 'my_workouts', to: 'workouts#my_workouts'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

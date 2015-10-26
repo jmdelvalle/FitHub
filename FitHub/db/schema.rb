@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023193359) do
+ActiveRecord::Schema.define(version: 20151021151538) do
 
   create_table "exercises", force: :cascade do |t|
     t.string   "name"
     t.string   "muscle_group"
     t.string   "specific_muscles_worked"
     t.text     "guide"
+    t.integer  "workout_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
@@ -44,16 +45,6 @@ ActiveRecord::Schema.define(version: 20151023193359) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
-
-  create_table "workout_exercises", force: :cascade do |t|
-    t.integer  "workout_id"
-    t.integer  "exercise_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "workout_exercises", ["exercise_id"], name: "index_workout_exercises_on_exercise_id"
-  add_index "workout_exercises", ["workout_id"], name: "index_workout_exercises_on_workout_id"
 
   create_table "workouts", force: :cascade do |t|
     t.string   "name"
