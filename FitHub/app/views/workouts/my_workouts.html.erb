@@ -1,0 +1,10 @@
+<% @my_workouts.each do |x| %>
+<div class="well well-sm">
+  <h3>Workout: <%= x.name %></h3>
+  <h3>Category: <%= x.category %></h3>
+  <h3>Description of Workout: <%= x.description %></h3>
+  <h3>Challenges: <%= x.challenges %></h3>
+  <h4><%= link_to 'Show', x %></h4>
+  <h4><%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></h4>
+</div>
+<% end %>
