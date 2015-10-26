@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Workouts</h1>
+<h1>All Workouts Created On FitHub</h1>
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>User ID</th>
@@ -23,13 +23,19 @@
         <td><%= workout.description %></td>
         <td><%= workout.challenges %></td>
         <td><%= link_to 'Show', workout %></td>
-        <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
-        <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
 
-<br>
-
-<%= link_to 'New Workout', new_workout_path %>
+<% @workouts.each do |workout| %>
+  <div class= "well well-sm">
+    <% person = User.find_by_id(workout.user_id)%>
+    <h4>Created By: <%= person.name %><br></h4>
+    <h4>Workout Title: <%= workout.name %><br></h4>
+    <h4>Category: <%= workout.category %><br></h4>
+    <h4>Description of the Workout: <%= workout.description %><br></h4>
+    <h4>Workout Challenges:<%= workout.challenges %><br></h4>
+    <h5><%= link_to "Show", workout %></h5>
+  </div>
+<% end %>
