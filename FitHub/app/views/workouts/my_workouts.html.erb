@@ -1,10 +1,18 @@
 <% @my_workouts.each do |x| %>
-<div class="well well-sm">
-  <h3>Workout: <%= x.name %></h3>
-  <h3>Category: <%= x.category %></h3>
-  <h3>Description of Workout: <%= x.description %></h3>
-  <h3>Challenges: <%= x.challenges %></h3>
-  <h4><%= link_to 'Show', x %></h4>
-  <h4><%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></h4>
-</div>
+  <div class="row">
+    <div align="center">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="well well-sm">
+          <h3>Workout: </h3><%= x.name %>
+          <h3>Category: </h3><%= x.category %>
+          <h3>Description of Workout: </h3><%= x.description %>
+          <h3>Challenges: </h3><%= x.challenges %>
+          <h4><%= link_to 'Show', x %></h4>
+          <h4><%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></h4>
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
 <% end %>
