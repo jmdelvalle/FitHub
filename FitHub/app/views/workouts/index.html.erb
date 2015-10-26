@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<center><h1>All Workouts Created On FitHub</h1></center><br>
-
+<center><h1>All Workouts Created On FitHub</h1></center>
+<center><h2>People like you have created <%= @workouts.count %> workouts on FitHub!</h2></center>
 <!-- <table>
   <thead>
     <tr>
@@ -40,7 +40,7 @@
           <h3>Category: </h3><h4><%= workout.category %><br></h4>
           <h3>Description of the Workout: </h3><h4><%= workout.description %><br></h4>
           <h3>Workout Challenges: </h3><h4><%= workout.challenges %><br></h4>
-          <h5><%= link_to "Show", workout %></h5>
+          <h3><%= link_to "Show", workout %></h3>
         </div>
       </div>
       <div class="col-md-3"></div>

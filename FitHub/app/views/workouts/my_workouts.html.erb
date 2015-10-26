@@ -1,13 +1,14 @@
+<center><h1>You have created <%= @my_workouts.count %> workouts so far!</h1></center><br>
 <% @my_workouts.each do |x| %>
   <div class="row">
     <div align="center">
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <div class="well well-sm">
-          <h3>Workout: </h3><%= x.name %>
-          <h3>Category: </h3><%= x.category %>
-          <h3>Description of Workout: </h3><%= x.description %>
-          <h3>Challenges: </h3><%= x.challenges %>
+          <h3>Workout: </h3><h4><%= x.name %></h4>
+          <h3>Category: </h3><h4><%= x.category %></h4>
+          <h3>Description of Workout: </h3><h4><%= x.description %></h4>
+          <h3>Challenges: </h3><h4><%= x.challenges %></h4>
           <h4><%= link_to 'Show', x %></h4>
           <h4><%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></h4>
         </div>

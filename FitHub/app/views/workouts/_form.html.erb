@@ -9,76 +9,86 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :challenges %><br>
-    <%= f.text_area :challenges %>
-  </div>
-<button class="btn btn-primary" role="button" data-toggle="collapse" href="#armExercises" aria-expanded="false" aria-controls="collapseExample"> Arms
-</button>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#legExercises" aria-expanded="false" aria-controls="collapseExample"> Legs
-</button>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#backExercises" aria-expanded="false" aria-controls="collapseExample"> Back
-</button>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#chestExercises" aria-expanded="false" aria-controls="collapseExample"> Chest
-</button>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#shoulderExercises" aria-expanded="false" aria-controls="collapseExample"> Shoulders
-</button>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#absExercises" aria-expanded="false" aria-controls="collapseExample"> Abs
-</button>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="well well-sm">
+      <div align="center">
+        <div class="field">
+          <h3><%= f.label :name %><br></h3>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <h3><%= f.label :category %><br></h3>
+          <%= f.text_field :category %>
+        </div>
+        <div class="field">
+          <h3><%= f.label :description %><br></h3>
+          <%= f.text_area :description %>
+        </div>
+        <div class="field">
+          <h3><%= f.label :challenges %><br></h3>
+          <%= f.text_area :challenges %>
+        </div><br>
 
-<div class="collapse" id="armExercises">
-  <div class="well">
-    <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Arms'"), :id, :name) do |b| %>
-      <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-      <% end %>
+          <h3>Exercise Categories</h3>
+
+            <button class="btn btn-primary" role="button" data-toggle="collapse" href="#armExercises" aria-expanded="false" aria-controls="collapseExample"> Arms
+            </button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#legExercises" aria-expanded="false" aria-controls="collapseExample"> Legs
+            </button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#backExercises" aria-expanded="false" aria-controls="collapseExample"> Back
+            </button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#chestExercises" aria-expanded="false" aria-controls="collapseExample"> Chest
+            </button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#shoulderExercises" aria-expanded="false" aria-controls="collapseExample"> Shoulders
+            </button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#absExercises" aria-expanded="false" aria-controls="collapseExample"> Abs
+            </button>
+
+
+          <div class="collapse" id="armExercises">
+              <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Arms'"), :id, :name) do |b| %>
+                <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
+                <% end %>
+          </div>
+
+          <div class="collapse" id="legExercises">
+             <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Legs'"), :id, :name) do |b| %>
+                <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
+                <% end %>
+          </div>
+
+          <div class="collapse" id="backExercises">
+            <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Back'"), :id, :name) do |b| %>
+                <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
+                <% end %>
+          </div>
+
+          <div class="collapse" id="chestExercises">
+          <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Chest'"), :id, :name) do |b| %>
+                <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
+                <% end %>
+          </div>
+
+          <div class="collapse" id="shoulderExercises">
+          <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Chest'"), :id, :name) do |b| %>
+                <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
+                <% end %>
+          </div>
+
+          <div class="collapse" id="absExercises">
+                <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Abs'"), :id, :name) do |b| %>
+                <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
+                <% end %>
+          </div>
+
+            <div class="actions"><br><%= f.submit %></div>
+          <% end %>
+            <h3><%= link_to 'Back', workouts_path %></h3>
+        </div>
+
+      </div>
   </div>
+  <div class="col-md-3"></div>
 </div>
-<div class="collapse" id="legExercises">
-  <div class="well">
-   <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Legs'"), :id, :name) do |b| %>
-      <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-      <% end %>
-  </div>
-</div>
-<div class="collapse" id="backExercises">
-  <div class="well">
-  <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Back'"), :id, :name) do |b| %>
-      <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-      <% end %>
-  </div>
-</div>
-<div class="collapse" id="chestExercises">
-  <div class="well">
-<%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Chest'"), :id, :name) do |b| %>
-      <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-      <% end %>
-  </div>
-</div>
-<div class="collapse" id="shoulderExercises">
-  <div class="well">
-<%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Chest'"), :id, :name) do |b| %>
-      <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-      <% end %>
-  </div>
-</div>
-<div class="collapse" id="absExercises">
-  <div class="well">
-      <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Abs'"), :id, :name) do |b| %>
-      <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-      <% end %>
-  </div>
-</div>
-  <div class="actions"><%= f.submit %></div>
-<% end %>
