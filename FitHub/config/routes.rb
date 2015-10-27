@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  resources :friendships
 
   root 'pages#index'
 
   get 'users/profile'
   get 'users/home'
   get 'auth/:provider/callback', to: 'sessions#create'
-
+  get 'users/show', to: 'users#profile'
   delete 'sign_out', to: 'sessions#destroy'
   resources :exercises
   resources :users

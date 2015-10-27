@@ -1,3 +1,20 @@
+<% if current_user.workouts.empty? %>
+
+
+<div align="center">
+  <div class="container-fluid">
+    <div class= "well well-sm">
+          <h1>Hey <%= current_user.name %>, Welcome to FitHub!</h1><br>
+          <h2>Today is <%= Time.now.strftime("%B %e, %Y")%></h2>
+          <h2>What Workout Will You Conquer?</h2>
+    </div>
+    <div class="well well-sm">
+      <h2>Start by creating your first workout!</h2><br>
+      <h2><%= link_to "Click Here To Create A Workout!", new_workout_path %></h2>
+    </div>
+  </div>
+</div>
+<% else %>
 <div align="center">
   <div class="container-fluid">
     <div class= "well well-sm">
@@ -16,3 +33,5 @@
     </div>
   </div>
 </div>
+
+<% end %>
