@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="col-md-3"></div>
-    <h2>Following</h2>
+    <h2>Following <%= current_user.friendships.count %> </h2>
 <ul>
   <% for friendship in current_user.friendships %>
     <li>
@@ -42,7 +42,7 @@
 
 <p><%= link_to "Find Friends", users_path %></p>
 
-<h2>Followers</h2>
+<h2>Followers <%= current_user.inverse_friends.count %></h2>
 <ul>
   <% for user in current_user.inverse_friends %>
     <li><%=h user.name %></li>

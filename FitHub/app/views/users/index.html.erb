@@ -12,7 +12,7 @@
   <tbody>
     <% @user= User.all %>
     <% @user.select do |user| %>
-    <% if user != current_user %>
+    <% if user.name != current_user.name%>
     <strong> <%= user.name %> </strong>
     <tr>
   <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
