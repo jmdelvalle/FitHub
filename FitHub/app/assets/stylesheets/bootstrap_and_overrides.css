@@ -9,7 +9,7 @@
   body { background: #bbbbc9 !important;}
   .navbar-default {
     background-color: #3c9ce7;
-    border-color: #3c9ce7;
+    border-color: #368CD0;
   }
   .navbar-default .navbar-brand {
     color: #ffffff;
@@ -67,6 +67,15 @@
     }
   }
 
+.panel-default>.panel-heading{
+  color: #ffffff;
+  background-color: #3c9ce7;
+  border-color: #368CD0;
+}
+textarea{
+  width: 485px;
+  height: 125px;
+}
   #centered_div {
     top: 50%;
     left: 50%;
