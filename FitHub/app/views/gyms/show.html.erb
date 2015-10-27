@@ -1,0 +1,6 @@
+<% @gyms.each do |el| %>
+  <% if el["formatted_address"].include?(@city.capitalize) %>
+    <strong><%= el["name"] %></strong><br>
+    <%= el["formatted_address"] %><br>
+  <% end %>
+<% end %>
