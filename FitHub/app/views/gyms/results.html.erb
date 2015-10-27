@@ -1,0 +1,8 @@
+<% @gyms.each do |el| %>
+  <% gym_address = el["formatted_address"] %>
+  <% if gym_address.include?(@city.capitalize) %>
+    <strong><%= el["name"] %></strong><br>
+    <%= gym_address %><br>
+    <%= link_to "Map", "http://maps.google.com/?q=#{gym_address}" %>
+  <% end %>
+<% end %>

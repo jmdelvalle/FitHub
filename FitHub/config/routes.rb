@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'my_workouts', to: 'workouts#my_workouts'
 
   get 'gyms', to: 'gyms#index'
-  post 'results', to: 'gyms#show'
+  post 'results', to: 'gyms#results'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
