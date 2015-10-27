@@ -24,14 +24,24 @@ class FriendshipsController < ApplicationController
   # POST /friendships
   # POST /friendships.json
 def create
-  @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
-  if @friendship.save
-    flash[:notice] = "Successfully Following."
+  # @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
+  if current_user.friendships.collect {|friendship| friendship.friend_id}.include?(params[:friend_id].to_i)
+    flash[:alert] = "Hey! You are already following them."
     redirect_to users_profile_path
   else
-    flash[:error] = "Unable to Follow."
+    @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
+    @friendship.save
+    flash[:notice] = "Successfully Following."
     redirect_to users_profile_path
   end
+
+  # if @friendship.save
+  #   flash[:notice] = "Successfully Following."
+  #   redirect_to users_profile_path
+  # else
+  #   flash[:error] = "Unable to Follow."
+  #   redirect_to users_profile_path
+  # end
 end
 
 def destroy

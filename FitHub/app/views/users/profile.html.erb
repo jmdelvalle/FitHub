@@ -1,9 +1,23 @@
 <% if notice %>
+<div class="container-fluid" id="medium_size">
   <div class="alert alert-success" role="alert">
     <p align="center">
       <%= notice %>
     </p>
   </div>
+</div>
+
+<% end %>
+
+<% if alert %>
+<div class="container-fluid" id="medium_size">
+  <div class="alert alert-danger" role="alert">
+    <p align="center">
+      <%= alert %>
+    </p>
+  </div>
+</div>
+
 <% end %>
 
 <div align="center"><h1><%= current_user.name %></h1><br></div>
@@ -30,7 +44,7 @@
       </div>
     </div>
     <div class="col-md-3"></div>
-    <h2>Following <%= current_user.friendships.count %> </h2>
+    <h3>Following <%= current_user.friendships.count %> people </h3>
 <ul>
   <% for friendship in current_user.friendships %>
     <li>
@@ -42,7 +56,7 @@
 
 <p><%= link_to "Find Friends", users_path %></p>
 
-<h2>Followers <%= current_user.inverse_friends.count %></h2>
+<h3><%= current_user.inverse_friends.count %> people are following you</h3>
 <ul>
   <% for user in current_user.inverse_friends %>
     <li><%=h user.name %></li>
