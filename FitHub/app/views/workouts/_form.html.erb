@@ -34,54 +34,109 @@
 
           <h3>Exercise Categories</h3>
 
-            <button class="btn btn-primary" role="button" data-toggle="collapse" href="#armExercises" aria-expanded="false" aria-controls="collapseExample"> Arms
-            </button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#legExercises" aria-expanded="false" aria-controls="collapseExample"> Legs
-            </button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#backExercises" aria-expanded="false" aria-controls="collapseExample"> Back
-            </button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#chestExercises" aria-expanded="false" aria-controls="collapseExample"> Chest
-            </button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#shoulderExercises" aria-expanded="false" aria-controls="collapseExample"> Shoulders
-            </button>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#absExercises" aria-expanded="false" aria-controls="collapseExample"> Abs
-            </button>
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
+            <!-- This is the accordion group for Arms -->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading_one">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#armExercises" href="#armExercises" aria-expanded="true" aria-controls="collapseOne">Arm Exercises</a>
+                </h4>
+              </div>
+              <!-- Finished -->
+              <div class="panel-collapse collapse" id="armExercises" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Arms'"), :id, :name) do |b| %>
+                    <%= b.label(:"name" => b.value) { b.check_box + " " + b.text } %><br>
+                    <% end %>
+                </div>
+              </div>
+            </div>
 
-          <div class="collapse" id="armExercises">
-              <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Arms'"), :id, :name) do |b| %>
-                <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-                <% end %>
-          </div>
+            <!-- This is the accordion group for Legs -->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading_two">
+                <h4 class="panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#legExercises" href="#legExercises" aria-expanded="true" aria-controls="collapseTwo">Leg Exercises</a>
+                </h4>
+              </div>
+              <!-- Finished -->
+              <div class="panel-collapse collapse" id="legExercises" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                  <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Legs'"), :id, :name) do |b| %>
+                     <%= b.label(:"name" => b.value) { b.check_box + " " + b.text } %><br>
+                     <% end %>
+                </div>
+              </div>
+            </div>
 
-          <div class="collapse" id="legExercises">
-             <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Legs'"), :id, :name) do |b| %>
-                <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-                <% end %>
-          </div>
+            <!-- This is the accordion group for Back -->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading_three">
+                <h4 class="panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#backExercises" href="#backExercises" aria-expanded="true" aria-controls="collapseThree">Back Exercises</a>
+                </h4>
+              </div>
+              <!-- Finished -->
+              <div class="panel-collapse collapse" id="backExercises" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                  <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Back'"), :id, :name) do |b| %>
+                      <%= b.label(:"name" => b.value) { b.check_box + " " + b.text } %><br>
+                      <% end %>
+                </div>
+              </div>
+            </div>
 
-          <div class="collapse" id="backExercises">
-            <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Back'"), :id, :name) do |b| %>
-                <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-                <% end %>
-          </div>
+            <!-- This is the accordion group for Chest -->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading_four">
+                <h4 class="panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#chestExercises" href="#chestExercises" aria-expanded="true" aria-controls="collapseFour">Chest Exercises</a>
+                </h4>
+              </div>
+              <!-- Finished -->
+              <div class="panel-collapse collapse" id="chestExercises" role="tabpanel" aria-labelledby="headingFour">
+                <div class="panel-body">
+                  <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Chest'"), :id, :name) do |b| %>
+                        <%= b.label(:"name" => b.value) { b.check_box + " " + b.text } %><br>
+                        <% end %>
+                </div>
+              </div>
+            </div>
 
-          <div class="collapse" id="chestExercises">
-          <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Chest'"), :id, :name) do |b| %>
-                <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-                <% end %>
-          </div>
+            <!-- This is the accordion group for Shoulders -->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading_five">
+                <h4 class="panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#shoulderExercises" href="#shoulderExercises" aria-expanded="true" aria-controls="collapseFive">Shoulder Exercises</a>
+                </h4>
+              </div>
+              <!-- Finished -->
+              <div class="panel-collapse collapse" id="shoulderExercises" role="tabpanel" aria-labelledby="headingFive">
+                <div class="panel-body">
+                  <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Chest'"), :id, :name) do |b| %>
+                        <%= b.label(:"name" => b.value) { b.check_box + " " + b.text } %><br>
+                        <% end %>
+                </div>
+              </div>
+            </div>
 
-          <div class="collapse" id="shoulderExercises">
-          <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Chest'"), :id, :name) do |b| %>
-                <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-                <% end %>
-          </div>
+            <!-- This is the accordion group for Abdominals -->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading_six">
+                <h4 class="panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#absExercises" href="#absExercises" aria-expanded="true" aria-controls="collapseSix">Abdominal Exercises</a>
+                </h4>
+              </div>
 
-          <div class="collapse" id="absExercises">
-                <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Abs'"), :id, :name) do |b| %>
-                <%= b.label(:"name" => b.value) { b.check_box + b.text } %><br>
-                <% end %>
+              <div class="panel-collapse collapse" id="absExercises" role="tabpanel" aria-labelledby="headingSix">
+                <div class="panel-body">
+                  <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Abs'"), :id, :name) do |b| %>
+                  <%= b.label(:"name" => b.value) { b.check_box + " " + b.text } %><br>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
 
             <div class="actions"><br><%= f.submit %></div>
