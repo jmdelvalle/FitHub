@@ -1,0 +1,7 @@
+<%= form_tag(results_path, method: "post") do %>
+  <%= label_tag "Name" %><br>
+  <%= text_field_tag :keyword %><br>
+  <%= label_tag :city %><br>
+  <%= text_field_tag :city %><br>
+  <%= submit_tag "Search" %>
+<% end %>
