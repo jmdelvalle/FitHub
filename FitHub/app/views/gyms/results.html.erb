@@ -3,6 +3,6 @@
   <% if gym_address.include?(@city.capitalize) %>
     <strong><%= el["name"] %></strong><br>
     <%= gym_address %><br>
-    <%= link_to "Map", "http://maps.google.com/?q=#{gym_address}" %>
+    <%= link_to "Map", "http://maps.google.com/?q=#{gym_address}" %><br>
   <% end %>
 <% end %>
