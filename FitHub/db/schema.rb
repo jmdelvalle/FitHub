@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20151027152541) do
   end
 
   create_table "gyms", force: :cascade do |t|
-    t.string   "name"
-    t.string   "url"
+    t.string   "address"
+    t.float    "longitude"
+    t.float    "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
