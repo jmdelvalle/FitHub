@@ -13,10 +13,7 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
+
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
@@ -24,7 +21,35 @@
   <div class="field">
     <%= f.label :challenges %><br>
     <%= f.text_area :challenges %>
-  </div>
+  </div>  
+  <div class="field">
+  <%= f.label :category %><br>
+  <%= f.check_box_tag :category %>
+<div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary">
+    <input type="checkbox" name="category" value="Arms" id="option1" autocomplete="off" checked> Arms
+  </label>
+  <label class="btn btn-primary">
+    <input type="checkbox" name="category" value="Legs" id="option2" autocomplete="off"> Legs
+  </label>
+  <label class="btn btn-primary">
+    <input type="checkbox" name="category" value="Back" id="option3" autocomplete="off"> Back
+  </label>
+  <label class="btn btn-primary">
+    <input type="checkbox" name="category" value="Chest" id="option4" autocomplete="off"> Chest
+  </label>
+  <label class="btn btn-primary">
+    <input type="checkbox" name="category" value="Shoulders" id="option5" autocomplete="off"> Shoulders
+  </label>
+  <label class="btn btn-primary">
+    <input type="checkbox" name="category" value="Abs" id="option6" autocomplete="off"> Abs
+  </label>
+</div><br>
+</div>
+
+
+
+
 <button class="btn btn-primary" role="button" data-toggle="collapse" href="#armExercises" aria-expanded="false" aria-controls="collapseExample"> Arms
 </button>
 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#legExercises" aria-expanded="false" aria-controls="collapseExample"> Legs
@@ -36,7 +61,7 @@
 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#shoulderExercises" aria-expanded="false" aria-controls="collapseExample"> Shoulders
 </button>
 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#absExercises" aria-expanded="false" aria-controls="collapseExample"> Abs
-</button>
+</button><br>
 
 <div class="collapse" id="armExercises">
   <div class="well">
