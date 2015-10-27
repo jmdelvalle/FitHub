@@ -1,26 +1,33 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
 
-    <div class="mini-layout fluid">
-        <div class="mini-layout-sidebar">
-          <h3>Workout: <%= @workout.name %></h3>
-          <h3>Category: <%= @workout.category %></h3>
-          <h3>Description of Workout: <%= @workout.description %></h3>
-          <h3>Challenges: <%= @workout.challenges %></h3>
+    <div class="row">
+        <div class="col-md-3">
+
         </div>
 
-        <div class="mini-layout-body">
-          <% @workout.exercises.each do |e| %>
+
+        <div class="col-md-6">
+          <div class="row">
             <div class="well well-sm">
-              <h3><%= e.name %><br></h3>
-              <h5>Category: <%= e.muscle_group %><br></h5>
-              <h5>Muscles Worked: <%= e.specific_muscles_worked %><br></h5>
-              <h5> <p>
-                How-To: <%= e.guide %><br>
-              </p><br></h5>
+              <h3>Workout: <%= @workout.name %></h3>
+              <h3>Category: <%= @workout.category %></h3>
+              <h3>Description of Workout: <%= @workout.description %></h3>
+              <h3>Challenges: <%= @workout.challenges %></h3>
             </div>
-          <% end %>
+          </div>
+            <% @workout.exercises.each do |e| %>
+              <div class="well well-sm">
+                <h3><%= e.name %><br></h3>
+                <h5>Category: <%= e.muscle_group %><br></h5>
+                <h5>Muscles Worked: <%= e.specific_muscles_worked %><br></h5>
+                <h5> <p>
+                  How-To: <%= e.guide %><br>
+                </p><br></h5>
+              </div>
+            <% end %>
         </div>
+        <div class="col-md-3"></div>
 
     </div>
 

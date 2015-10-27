@@ -1,6 +1,8 @@
-<h1>Welcome To FitHub</h1>
-<% if current_user %>
-  <h2>Signed in as: <%= current_user.name %></h2>
-<% else %>
-  <%= link_to "Login With Facebook", "auth/facebook" %>
-<% end %>
+<div id="centered_div">
+  <h1>Welcome To FitHub</h1>
+  <% if current_user %>
+    <h2>Signed in as: <%= current_user.name %></h2>
+  <% else %>
+    <h2><%= link_to "Login With Facebook", "auth/facebook" %></h2>
+  <% end %>
+</div>
