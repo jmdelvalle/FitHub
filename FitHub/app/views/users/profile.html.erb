@@ -53,7 +53,7 @@
   <% for friendship in current_user.friendships %>
 
         <%=h friendship.friend.name %> |
-        <%= link_to "Remove", friendship, :method => :delete %>
+        <%= link_to "Remove", friendship, :method => :delete %><br>
 
   <% end %>
 </ul>

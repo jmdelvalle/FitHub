@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :exercises
   resources :users
   resources :workouts
+  resources :users_workouts
+  resources :gyms_users
   get 'my_workouts', to: 'workouts#my_workouts'
 
   # The priority is based upon order of creation: first created -> highest priority.

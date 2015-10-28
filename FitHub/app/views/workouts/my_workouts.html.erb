@@ -1,10 +1,15 @@
-<center><h1>You have created <%= @my_workouts.count %> workouts so far!</h1></center><br>
+<% if @my_workouts.count == 1 %>
+<center><h1>You have created or joined <%= @my_workouts.count %> workout so far!</h1></center><br>
+<% else %>
+<center><h1>You have created or joined <%= @my_workouts.count %> workouts so far!</h1></center><br>
+<% end %>
 <% @my_workouts.each do |x| %>
   <div class="row">
     <div align="center">
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <div class="well well-sm">
+          <h3>Created By: </h3><h4><%= x.users.first.name %></h4>
           <h3>Workout: </h3><h4><%= x.name %></h4>
           <h3>Category: </h3><h4><%= x.category %></h4>
           <h3>Description of Workout: </h3><h4><%= x.description %></h4>

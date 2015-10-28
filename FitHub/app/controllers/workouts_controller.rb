@@ -22,6 +22,7 @@ class WorkoutsController < ApplicationController
   # GET /workouts/1
   # GET /workouts/1.json
   def show
+    @users_workout = UsersWorkout.new
   end
 
   # GET /workouts/new
