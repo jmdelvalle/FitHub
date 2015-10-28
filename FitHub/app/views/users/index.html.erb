@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
+<center><h1>Everyone On FitHub</h1></center>
 
 <table>
   <thead>
@@ -10,15 +10,20 @@
   </thead>
 
   <tbody>
-    <% @user= User.all %>
-    <% @user.select do |user| %>
-    <% if user.name != current_user.name%>
-    <strong> <%= user.name %> </strong>
-    <tr>
-  <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
-    </tr><br>
-    <% end %>
-    <% end %>
+    <% @users.each do |user| %>
+        <div class="container-fluid" id="medium_size">
+          <div class="well well-sm">
+            <center>
+              <h4><%= user.name %><br>
+                <% if current_user.is_friend?(user.id) %>
+                  <small>Added!</small>
+                <% else %>
+                  <small><%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %></small></h4>
+                <% end %>
+            </center>
+          </div>
+        </div>
+      <% end %>
   </tbody>
 </table>
 

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-  has_many :gyms
-  has_many :workouts
+  has_many :gyms_users
+  has_many :gyms, through: :gyms_users
+  has_many :users_workouts
+  has_many :workouts, through: :users_workouts
   has_many :friendships
   has_many :friends, :through => :friendships
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
@@ -16,5 +18,9 @@ class User < ActiveRecord::Base
       name: auth['info']['name'],
       # image: auth['info']['image']
     )
+  end
+
+  def is_friend?(friend_id)
+    friendships.collect {|friendship| friendship.friend_id}.include?(friend_id)
   end
 end
