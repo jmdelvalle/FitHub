@@ -25,7 +25,7 @@ class FriendshipsController < ApplicationController
   # POST /friendships.json
 def create
   # @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
-  if current_user.friendships.collect {|friendship| friendship.friend_id}.include?(params[:friend_id].to_i)
+  if current_user.is_friend?(params[:friend_id].to_i)
     flash[:alert] = "Hey! You are already following them."
     redirect_to users_profile_path
   else

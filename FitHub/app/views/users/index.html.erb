@@ -10,23 +10,20 @@
   </thead>
 
   <tbody>
-    <% @user= User.all %>
-    <% @user.select do |user| %>
-    <% if user.name != current_user.name%>
-    <div class="container-fluid" id="medium_size">
-      <div class="well well-sm">
-          <center>
-            <h4><%= user.name %><br><small><%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %></small></h4>
-          </center>
-      </div>
-    </div>
-
-
-    <tr>
-
-    </tr><br>
-    <% end %>
-    <% end %>
+    <% @users.each do |user| %>
+        <div class="container-fluid" id="medium_size">
+          <div class="well well-sm">
+            <center>
+              <h4><%= user.name %><br>
+                <% if current_user.is_friend?(user.id) %>
+                  <small>Added!</small>
+                <% else %>
+                  <small><%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %></small></h4>
+                <% end %>
+            </center>
+          </div>
+        </div>
+      <% end %>
   </tbody>
 </table>
 
