@@ -1,24 +1,7 @@
-<% if notice %>
-<div class="container-fluid" id="medium_size">
-  <div class="alert alert-success" role="alert">
-    <p align="center">
-      <%= notice %>
-    </p>
-  </div>
-</div>
 
-<% end %>
 
-<% if alert %>
-<div class="container-fluid" id="medium_size">
-  <div class="alert alert-danger" role="alert">
-    <p align="center">
-      <%= alert %>
-    </p>
-  </div>
-</div>
-
-<% end %>
+<% flasher = notice ? [notice, "success"] : [alert, "alert"] %>
+<%= render partial: "flashes", locals: {flash_class: flasher.first, flash_message: flasher.last} %>
 
 <div align="center"><h1><%= current_user.name %></h1><br></div>
   <div class="row">
@@ -44,7 +27,11 @@
       </div>
     </div>
     <div class="col-md-3"></div>
-    <h3>Following <%= current_user.friendships.count %> people </h3>
+    <% if current_user.friendships.count == 1 %>
+      <h3>Following <%= current_user.friendships.count %> person</h3>
+    <% else %>
+      <h3>Following <%= current_user.friendships.count %> people</h3>
+    <% end %>
 <ul>
   <% for friendship in current_user.friendships %>
     <li>
