@@ -28,7 +28,7 @@ class GymsUsersController < ApplicationController
 
     respond_to do |format|
       if @gyms_user.save
-        format.html { redirect_to @gyms_user, notice: 'Gyms user was successfully created.' }
+        format.html { redirect_to @gyms_user, notice: 'Added to Your Gyms' }
         format.json { render :show, status: :created, location: @gyms_user }
       else
         format.html { render :new }

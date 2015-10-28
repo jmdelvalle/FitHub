@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_many :gyms_users
   has_many :gyms, through: :gyms_users
-  has_many :workouts
+  has_many :users_workouts
+  has_many :workouts, through: :users_workouts
   has_many :friendships
   has_many :friends, :through => :friendships
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
