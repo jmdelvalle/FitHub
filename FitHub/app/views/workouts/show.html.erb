@@ -31,7 +31,7 @@
             <% end %>
             <!-- If the first user for the workout is not the current user  -->
             <!-- And if the users for the workout includes current user -->
-            <% if @workout.user_id != current_user.id%>
+            <% if @workout.user_id != current_user.id && @workout.users.exclude?(current_user)%>
               <%= form_for @users_workout, method: :post do |f| %>
               <%= f.hidden_field :workout_id, :value => @workout.id%>
               <%= f.hidden_field :user_id, :value => current_user.id%>
