@@ -1,8 +1,16 @@
-<% @gyms.each do |el| %>
-  <% gym_address = el["formatted_address"] %>
+<% @gyms_results.each do |element| %>
+  <% gym_address = element["formatted_address"] %>
   <% if gym_address.include?(@city.capitalize) %>
-    <strong><%= el["name"] %></strong><br>
-    <%= gym_address %><br>
-    <%= link_to "Map", "http://maps.google.com/?q=#{gym_address}" %><br>
+    <p><strong><%= element["name"] %></strong></p>
+    <p><%= gym_address %></p>
+    <p><%= link_to "Map", "http://maps.google.com/?q=#{gym_address}" %></p>
+
+    <%= form_for(Gym.new, method: :post) do |f| %>
+      <%= f.hidden_field :name, :value => element.name %>
+      <%= f.hidden_field :address, :value => gym_address %>
+      <%= f.hidden_field :latitude, :value => element.lat %>
+      <%= f.hidden_field :longitude, :value => element.lng %>
+      <%= f.submit %><br>
+    <% end %><br>
   <% end %>
 <% end %>
