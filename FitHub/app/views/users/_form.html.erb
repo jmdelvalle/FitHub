@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  
+
 <div class="container">
   <div align="center">
     <div class="well well-sm">
@@ -33,6 +33,19 @@
       <%= f.text_field :c_deadlift %><br>
       <%= f.label "Target Deadlift Weight" %>
       <%= f.text_field :t_deadlift %><br><br>
+    </div>
+
+    <div class="container">
+      <div align="center">
+        <%= f.label "Address" %>
+        <%= f.text_field :address %><br>
+        <%= f.label "City" %>
+        <%= f.text_field :city %><br>
+        <%= f.label "State" %>
+        <%= f.text_field :state %><br>
+        <%= f.label "Zip code" %>
+        <%= f.text_field :zip_code %><br><br>
+      </div>
     </div>
 
     <div class="actions">
