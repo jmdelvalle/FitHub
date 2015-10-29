@@ -24,7 +24,7 @@
             <h2>What Workout Will You Conquer?</h2>
       </div>
       <div class="well well-sm">
-        <h2>The Latest Addition to Your Workouts</h2><br>
+        <h2>The Latest Addition to My Workouts</h2><br>
         <% @recent_workout = current_user.workouts.last %>
         <% creator_id = @recent_workout.user_id %>
         <% creator = User.find_by_id(creator_id).name %>
