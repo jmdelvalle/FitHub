@@ -3,5 +3,13 @@
   <%= text_field_tag :keyword %><br>
   <%= label_tag :city %><br>
   <%= text_field_tag :city %><br>
-  <%= submit_tag "Search" %>
+  <%= submit_tag "Search" %><br>
 <% end %>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <% @gyms.each do |gym| %>
+      <%= gym.name %><br>
+    <% end %>
+  </div>
+</div>
