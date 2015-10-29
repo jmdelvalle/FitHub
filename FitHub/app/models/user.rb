@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :gyms_users
-  has_many :gyms, through: :gyms_users
+  has_many :users_gyms
+  has_many :gyms, through: :users_gyms
   has_many :users_workouts
   has_many :workouts, through: :users_workouts
   has_many :friendships

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users
   resources :workouts
   resources :users_workouts
-  resources :gyms_users
+  resources :users_gyms
   get 'my_workouts', to: 'workouts#my_workouts'
 
   post 'results', to: 'gyms#results'
