@@ -25,10 +25,9 @@ class UsersWorkoutsController < ApplicationController
   # POST /users_workouts.json
   def create
     @users_workout = UsersWorkout.new(users_workout_params)
-
     respond_to do |format|
       if @users_workout.save
-        format.html { redirect_to @users_workout, notice: 'Users workout was successfully created.' }
+        format.html { redirect_to users_profile_path, notice: 'You just joined a new workout!' }
         format.json { render :show, status: :created, location: @users_workout }
       else
         format.html { render :new }
@@ -56,7 +55,7 @@ class UsersWorkoutsController < ApplicationController
   def destroy
     @users_workout.destroy
     respond_to do |format|
-      format.html { redirect_to users_workouts_url, notice: 'Users workout was successfully destroyed.' }
+      format.html { redirect_to my_workouts_path, notice: 'Unfollowed Workout' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +68,6 @@ class UsersWorkoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def users_workout_params
-      params[:users_workout]
+      params.require(:users_workout).permit(:workout_id, :user_id)
     end
 end

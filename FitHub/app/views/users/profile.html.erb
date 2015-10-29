@@ -53,17 +53,21 @@
   <% for friendship in current_user.friendships %>
 
         <%=h friendship.friend.name %> |
-        <%= link_to "Remove", friendship, :method => :delete %>
+        <%= link_to "Remove", friendship, :method => :delete %><br>
 
   <% end %>
 </ul>
 
 <p><%= link_to "Find Friends", users_path %></p>
+<% if current_user.inverse_friends.count == 1 %>
+  <h3><%= current_user.inverse_friends.count %> person is following you</h3>
+<% else %>
+  <h3><%= current_user.inverse_friends.count %> people are following you</h3>
+<% end %>
 
-<h3><%= current_user.inverse_friends.count %> people are following you</h3>
 <ul>
   <% for user in current_user.inverse_friends %>
-    <li><%=h user.name %></li>
+    <%=h user.name %>
   <% end %>
 </ul>
   </div>

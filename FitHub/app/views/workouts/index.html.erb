@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <center><h1>All Workouts Created On FitHub</h1></center>
 <center><h2>People like you have created <%= @workouts.count %> workouts on FitHub!</h2></center>
@@ -33,9 +33,9 @@
     <div align="center">
       <div class="col-md-3"></div>
       <div class="col-md-6">
-        <div class= "well well-sm">
+        <div class= "well well-sm" id="#medium_size">
 
-          <% person = User.find_by_id(workout.users.first)%>
+          <% person = User.find_by_id(workout.user_id)%>
           <h3>Created By: </h3><h4><%= person.name %><br></h4>
           <h3>Workout Title: </h3><h4><%= workout.name %><br></h4>
           <h3>Category: </h3><h4><%= workout.category %><br></h4>
