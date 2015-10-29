@@ -1,21 +1,39 @@
+<% if notice %>
+<div class="container-fluid" id="medium_size">
+  <div class="alert alert-success" role="alert">
+    <p align="center">
+      <%= notice %>
+    </p>
+  </div>
+</div>
+<% end %>
+
 <% if @my_workouts.count == 1 %>
 <center><h1>You have created or joined <%= @my_workouts.count %> workout so far!</h1></center><br>
 <% else %>
 <center><h1>You have created or joined <%= @my_workouts.count %> workouts so far!</h1></center><br>
 <% end %>
-<% @my_workouts.each do |x| %>
+<% @my_workouts.each do |workout| %>
   <div class="row">
     <div align="center">
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <div class="well well-sm">
-          <h3>Created By: </h3><h4><%= x.users.order(:created_at).first.name %></h4>
-          <h3>Workout: </h3><h4><%= x.name %></h4>
-          <h3>Category: </h3><h4><%= x.category %></h4>
-          <h3>Description of Workout: </h3><h4><%= x.description %></h4>
-          <h3>Challenges: </h3><h4><%= x.challenges %></h4>
-          <h4><%= link_to 'Show', x %></h4>
-          <h4><%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></h4>
+          <% person = User.find_by_id(workout.user_id) %>
+          <h3>Created By: </h3><h4><%= person.name %></h4>
+          <h3>Workout: </h3><h4><%= workout.name %></h4>
+          <h3>Category: </h3><h4><%= workout.category %></h4>
+          <h3>Description of Workout: </h3><h4><%= workout.description %></h4>
+          <h3>Challenges: </h3><h4><%= workout.challenges %></h4>
+          <h4><%= link_to 'Show', workout %></h4>
+          <% if workout.user_id == current_user.id %>
+          <h4><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></h4>
+          <% else %>
+          <% end %>
+          <%= form_for workout.followed_workouts(current_user), method: :delete do |f| %>
+            <h4><%= f.submit "Unfollow This Workout", :class => "btn btn-primary"%></h4>
+          <% end %>
+
         </div>
       </div>
       <div class="col-md-3"></div>
