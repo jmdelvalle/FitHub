@@ -1,8 +1,8 @@
 class CreateLikes < ActiveRecord::Migration
   def change
-	create_join_table :user, :workouts, table_name: :likes do |t|
-      t.index [:user_id, :workout_id]
-      t.index [:workout_id, :user_id]
+  create_table :likes do |t|
+      t.belongs_to :user
+      t.belongs_to :workout
     end
   end
 end

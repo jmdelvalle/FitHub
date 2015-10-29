@@ -45,13 +45,10 @@ ActiveRecord::Schema.define(version: 20151029181957) do
   add_index "gyms_users", ["gym_id", "user_id"], name: "index_gyms_users_on_gym_id_and_user_id"
   add_index "gyms_users", ["user_id", "gym_id"], name: "index_gyms_users_on_user_id_and_gym_id"
 
-  create_table "likes", id: false, force: :cascade do |t|
-    t.integer "user_id",    null: false
-    t.integer "workout_id", null: false
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "workout_id"
   end
-
-  add_index "likes", ["user_id", "workout_id"], name: "index_likes_on_user_id_and_workout_id"
-  add_index "likes", ["workout_id", "user_id"], name: "index_likes_on_workout_id_and_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"
