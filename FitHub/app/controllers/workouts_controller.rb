@@ -22,6 +22,7 @@ class WorkoutsController < ApplicationController
   # GET /workouts/1
   # GET /workouts/1.json
   def show
+    @like = Like.new
     @users_workout = UsersWorkout.new
   end
 
@@ -83,6 +84,6 @@ class WorkoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
-      params.require(:workout).permit(:name, :category, :user_id, :description, :challenges, :exercise_ids => [])
+      params.require(:workout).permit(:name, :likes, :category, :user_id, :description, :challenges, :exercise_ids => [])
     end
 end

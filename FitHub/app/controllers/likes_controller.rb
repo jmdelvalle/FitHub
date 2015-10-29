@@ -28,7 +28,7 @@ class LikesController < ApplicationController
 
     respond_to do |format|
       if @like.save
-        format.html { redirect_to @like, notice: 'Like was successfully created.' }
+        format.html { redirect_to workouts_path, notice: 'Successfully liked workout!' }
         format.json { render :show, status: :created, location: @like }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class LikesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def like_params
-      params[:like]
+      params.require(:like).permit(:user_id, :workout_id)
     end
 end

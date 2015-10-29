@@ -28,12 +28,14 @@
           <h4><%= link_to 'Show', workout %></h4>
           <% if workout.user_id == current_user.id %>
           <h4><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></h4>
-          <% else %>
-          <% end %>
-          <%= form_for workout.followed_workouts(current_user), method: :delete do |f| %>
-            <h4><%= f.submit "Unfollow This Workout", :class => "btn btn-primary"%></h4>
           <% end %>
 
+          <% if workout.followed_workouts(current_user) %>
+            <%= form_for workout.followed_workouts(current_user), method: :delete do |f| %>
+            <h4><%= f.submit "Unfollow This Workout", :class => "btn btn-primary"%></h4>
+            <% end %>
+          <% end %>
+          
         </div>
       </div>
       <div class="col-md-3"></div>
