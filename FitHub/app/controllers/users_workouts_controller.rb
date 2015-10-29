@@ -55,7 +55,7 @@ class UsersWorkoutsController < ApplicationController
   def destroy
     @users_workout.destroy
     respond_to do |format|
-      format.html { redirect_to users_workouts_url, notice: 'Users workout was successfully destroyed.' }
+      format.html { redirect_to my_workouts_path, notice: 'Unfollowed Workout' }
       format.json { head :no_content }
     end
   end
