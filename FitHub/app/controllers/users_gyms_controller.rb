@@ -28,7 +28,7 @@ class UsersGymsController < ApplicationController
 
     respond_to do |format|
       if @users_gym.save
-        format.html { redirect_to @users_gym, notice: 'Added to Your Gyms' }
+        format.html { redirect_to users_profile_url, notice: 'Added to Your Gyms' }
         format.json { render :show, status: :created, location: @users_gym }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class UsersGymsController < ApplicationController
   def destroy
     @users_gym.destroy
     respond_to do |format|
-      format.html { redirect_to users_gyms_url, notice: 'Users Gym was successfully destroyed.' }
+      format.html { redirect_to users_profile_url, notice: 'Gym was successfully unfollowed.' }
       format.json { head :no_content }
     end
   end
