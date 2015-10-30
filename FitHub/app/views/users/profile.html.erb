@@ -29,14 +29,14 @@
       <div class="panel-body">
         <ul>
           <% current_user.gyms.each do |gym| %>
-            <%= link_to(gym) do %>
-            <h4><%= gym.name %></h4>
-            <% end %>
+          <%= link_to(gym) do %>
+          <h4><%= gym.name %></h4>
+          <% end %>
           <%= gym.address %><br>
           <% if gym.joined_gyms(current_user) %>
-            <%= form_for gym.joined_gyms(current_user), method: :delete do |f| %>
-            <h4><%= f.submit "Unfollow This Gym", class: "btn btn-primary btn-xs"%></h4>
-            <% end %>
+          <%= form_for gym.joined_gyms(current_user), method: :delete do |f| %>
+          <h4><%= f.submit "Unfollow This Gym", class: "btn btn-primary btn-xs"%></h4>
+          <% end %>
           <% end %>
           <% end %>
         </ul>
@@ -107,10 +107,12 @@
           <p><%= link_to "Find Friends", users_path, class: "btn btn-primary btn-xs" %></p>
           <% if current_user.inverse_friends.count == 1 %>
           <h3>Followers:
-            <%= current_user.inverse_friends.count %></h3>
+            <%= current_user.inverse_friends.count %>
+          </h3>
           <% else %>
           <h3>Followers:
-            <%= current_user.inverse_friends.count %></h3>
+            <%= current_user.inverse_friends.count %>
+          </h3>
           <% end %>
 
           <ul>
