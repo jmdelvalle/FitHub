@@ -17,69 +17,110 @@
     </p>
   </div>
 </div>
-
 <% end %>
 
-<div align="center"><h1><%= current_user.name %></h1><br></div>
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <div class= "well well-sm">
-        <div align="center">
-          <h2>Your Personal Stats</h2>
-          <h5>Current Body Weight: <%= current_user.c_bodyweight %> lbs<br></h5>
-          <h5>Current Bench Weight: <%= current_user.c_bench %> lbs<br></h5>
-          <h5>Current Squat Weight: <%= current_user.c_squat %> lbs<br></h5>
-          <h5>Current Deadlift Weight: <%= current_user.c_deadlift %> lbs<br></h5>
-        </div><br><br>
+<div align="center">
+  <h1><%= current_user.name %></h1><br>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Gyms you have joined!</div>
+      <div class="panel-body">
+        <ul>
+          <% current_user.gyms.each do |gym| %>
+            <%= link_to(gym) do %>
+            <h4><%= gym.name %></h4>
+            <% end %>
+          <%= gym.address %><br>
+          <% if gym.joined_gyms(current_user) %>
+            <%= form_for gym.joined_gyms(current_user), method: :delete do |f| %>
+            <h4><%= f.submit "Unfollow This Gym", :class => "btn btn-primary btn-xs"%></h4>
+            <% end %>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="well well-sm">
+      <div align="center">
+        <h2>Your Personal Stats</h2>
+        <h5>Current Body Weight:
+          <%= current_user.c_bodyweight %>
+          lbs<br></h5>
+        <h5>Current Bench Weight:
+          <%= current_user.c_bench %>
+          lbs<br></h5>
+        <h5>Current Squat Weight:
+          <%= current_user.c_squat %>
+          lbs<br></h5>
+        <h5>Current Deadlift Weight:
+          <%= current_user.c_deadlift %>
+          lbs<br></h5>
+      </div><br><br>
 
-        <div align="center">
-          <h2>Your Future Goals</h2>
-          <h5>Target Body Weight: <%= current_user.t_bodyweight %> lbs<br></h5>
-          <h5>Target Bench Weight: <%= current_user.t_bench %> lbs<br></h5>
-          <h5>Target Squat Weight: <%= current_user.t_squat %> lbs<br></h5>
-          <h5>Target Deadlift Weight: <%= current_user.t_deadlift %> lbs<br></h5><br>
-          <div class="button"><h3><%= link_to "Edit Profile",  edit_user_path(current_user.id) %></h3></div>
+      <div align="center">
+        <h2>Your Future Goals</h2>
+        <h5>Target Body Weight:
+          <%= current_user.t_bodyweight %>
+          lbs<br></h5>
+        <h5>Target Bench Weight:
+          <%= current_user.t_bench %>
+          lbs<br></h5>
+        <h5>Target Squat Weight:
+          <%= current_user.t_squat %>
+          lbs<br></h5>
+        <h5>Target Deadlift Weight:
+          <%= current_user.t_deadlift %>
+          lbs<br></h5><br>
+        <div class="button">
+          <h3><%= link_to "Edit Profile",  edit_user_path(current_user.id), class: "btn btn-primary" %></h3>
         </div>
       </div>
     </div>
-    <div class="col-md-3"></div>
-    <% if current_user.friendships.count == 1 %>
-      <h3>Following <%= current_user.friendships.count %> person</h3>
-    <% else %>
-      <h3>Following <%= current_user.friendships.count %> people</h3>
-    <% end %>
-<ul>
-  <% for friendship in current_user.friendships %>
-
-        <%=h friendship.friend.name %> |
-        <%= link_to "Remove", friendship, :method => :delete %><br>
-
-  <% end %>
-</ul>
-
-
-
-<p><%= link_to "Find Friends", users_path %></p>
-<% if current_user.inverse_friends.count == 1 %>
-  <h3><%= current_user.inverse_friends.count %> person is following you</h3>
-<% else %>
-  <h3><%= current_user.inverse_friends.count %> people are following you</h3>
-<% end %>
-
-<ul>
-  <% for user in current_user.inverse_friends %>
-    <%=h user.name %>
-  <% end %>
-</ul>
-
-<ul>
-  <h3>Gyms you have joined!</h3>
-    <% current_user.gyms.each do |gym| %>
-      <%= link_to(gym) do %>
-        <%= gym.name %><br>
-      <% end %>
-      <%= gym.address %>
-    <% end %>
-</ul>
   </div>
+  <div class="row">
+    <div class="col-md-3">
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">Friends</div>
+        <div class="panel-body">
+          <% if current_user.friendships.count == 1 %>
+          <h3>Following:
+            <%= current_user.friendships.count %></h3>
+          <% else %>
+          <h3>Following:
+            <%= current_user.friendships.count %></h3>
+          <% end %>
+          <ul>
+            <% for friendship in current_user.friendships %>
+
+            <%=h friendship.friend.name %>
+            |
+            <%= link_to "Remove", friendship, :method => :delete %><br>
+
+            <% end %>
+          </ul>
+
+          <p><%= link_to "Find Friends", users_path, class: "btn btn-primary btn-xs" %></p>
+          <% if current_user.inverse_friends.count == 1 %>
+          <h3>Followers:
+            <%= current_user.inverse_friends.count %></h3>
+          <% else %>
+          <h3>Followers:
+            <%= current_user.inverse_friends.count %></h3>
+          <% end %>
+
+          <ul>
+            <% for user in current_user.inverse_friends %>
+            <%= user.name %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
