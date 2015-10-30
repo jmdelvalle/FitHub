@@ -19,9 +19,9 @@
                       <th>Name</th>
                     </center>
                   </tr>
+                  <% @gym.users.each do |user| %>
                   <tr>
                     <td>
-                      <% @gym.users.each do |user| %>
                         <%= link_to(user) do %>
                           <%= user.name %>
                         <% end %>

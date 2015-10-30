@@ -9,8 +9,8 @@
       </div>
       <center>
         <h2>Most Recent Workout</h2>
-        <%= link_to(@workout) do %>
-          <h3><%= @user.workouts.where(:user_id => @user.id).last.name%></h3>
+        <%= link_to(@user.workouts.where(:user_id => @user.id).last) do %>
+          <h3><%= @user.workouts.where(:user_id => @user.id).last.name %></h3>
         <% end %>
         <h2>Joined Gyms</h2>
         <% @user.gyms.each do |gym| %>
