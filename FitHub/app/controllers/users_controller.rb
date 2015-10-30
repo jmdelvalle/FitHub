@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @workout = Workout.find_by_id(params[:id])
+  end
+
   # GET /users/1
   # GET /users/1.json
 

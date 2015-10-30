@@ -17,7 +17,6 @@
     </p>
   </div>
 </div>
-
 <% end %>
 
 <div align="center">
@@ -77,13 +76,14 @@
           <%= current_user.t_deadlift %>
           lbs<br></h5><br>
         <div class="button">
-          <h3><%= link_to "Edit Profile",  edit_user_path(current_user.id) %></h3>
+          <h3><%= link_to "Edit Profile",  edit_user_path(current_user.id), class: "btn btn-primary" %></h3>
         </div>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-3">
+
       <div class="panel panel-primary">
         <div class="panel-heading">Friends</div>
         <div class="panel-body">
@@ -104,7 +104,7 @@
             <% end %>
           </ul>
 
-          <p><%= link_to "Find Friends", users_path %></p>
+          <p><%= link_to "Find Friends", users_path, class: "btn btn-primary btn-xs" %></p>
           <% if current_user.inverse_friends.count == 1 %>
           <h3>Followers:
             <%= current_user.inverse_friends.count %></h3>
