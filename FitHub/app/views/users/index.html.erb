@@ -18,7 +18,7 @@
                 <% if current_user.is_friend?(user.id) %>
                   <small>Added!</small>
                 <% else %>
-                  <small><%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %></small></h4>
+                  <small><%= link_to "Follow", friendships_path(:friend_id => user), :method => :post %></small></h4>
                 <% end %>
             </center>
           </div>

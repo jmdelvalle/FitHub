@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20151029202921) do
 
   create_table "exercises", force: :cascade do |t|
@@ -32,11 +31,10 @@ ActiveRecord::Schema.define(version: 20151029202921) do
   end
 
   create_table "gyms", force: :cascade do |t|
-<<<<<<< HEAD
-    t.string   "name"
-    t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "address"
+    t.float  "longitude"
+    t.float  "latitude"
   end
 
   create_table "gyms_users", id: false, force: :cascade do |t|
@@ -46,18 +44,11 @@ ActiveRecord::Schema.define(version: 20151029202921) do
 
   add_index "gyms_users", ["gym_id", "user_id"], name: "index_gyms_users_on_gym_id_and_user_id"
   add_index "gyms_users", ["user_id", "gym_id"], name: "index_gyms_users_on_user_id_and_gym_id"
-=======
-    t.string "name"
-    t.string "address"
-    t.float  "longitude"
-    t.float  "latitude"
-  end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "workout_id"
   end
->>>>>>> 944e5d3c3bb77281fad313bcbca52f198640a695
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"

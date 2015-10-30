@@ -18,7 +18,10 @@ class WorkoutsController < ApplicationController
   def my_workouts
     @my_workouts = current_user.workouts
   end
-
+  def followed
+    @my_workouts = current_user.workouts
+  end
+  
   # GET /workouts/1
   # GET /workouts/1.json
   def show
