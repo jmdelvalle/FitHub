@@ -56,11 +56,11 @@ class WorkoutsController < ApplicationController
   # PATCH/PUT /workouts/1.json
   def update
     respond_to do |format|
-      if @workout.update(workout_params)
+      if @workout.update(workout_params) && @workout.user_id == current_user.id
         format.html { redirect_to @workout, notice: 'Workout was successfully updated.' }
         format.json { render :show, status: :ok, location: @workout }
       else
-        format.html { render :edit }
+        format.html { redirect_to @workout, notice: 'You are not allowed to edit this workout!' }
         format.json { render json: @workout.errors, status: :unprocessable_entity }
       end
     end
