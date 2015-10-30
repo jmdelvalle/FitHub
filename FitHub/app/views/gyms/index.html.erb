@@ -1,7 +1,54 @@
-<%= form_tag(results_path, method: "post") do %>
-  <%= label_tag "Name" %><br>
-  <%= text_field_tag :keyword %><br>
-  <%= label_tag :city %><br>
-  <%= text_field_tag :city %><br>
-  <%= submit_tag "Search" %>
-<% end %>
+<div align="center">
+  <%= form_tag(results_path, method: "post") do %>
+    <strong>What's The Gym Name?<br></strong>
+    <%= text_field_tag :keyword %><br><br>
+    <strong>City Name<br></strong>
+    <%= text_field_tag :city %><br><br>
+    <%= submit_tag "Search For Gyms" %><br>
+  <% end %>
+</div><br>
+
+<div class="container-fluid">
+  <div align="center">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <% @gyms.each do |gym| %>
+            <table class="table table-hover">
+                <tr>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td>
+                    <%= link_to(gym) do %>
+                      <%= gym.name %>
+                    <% end %>
+                  </td>
+                  <td><%= gym.address %></td>
+                  <td>
+                    <% if current_user.gyms.include?(gym) %>
+                      <strong>Added!</strong>
+                    <% else %>
+                      <%= form_for @users_gym do |f| %>
+                        <%= f.hidden_field :user_id, :value => current_user.id %>
+                        <%= f.hidden_field :gym_id, :value => gym.id %>
+                        <%= f.submit "Add To My Gyms" %>
+                      <% end %>
+                    <% end %>
+                  </td>
+                </tr>
+              </table>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+
+  </div>
+
+</div>
