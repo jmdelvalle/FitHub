@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>FitHub</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-  <%= analytics_init if Rails.env.production? %>
-</head>
-<body>
-  <%= render "layouts/header" %>
+  <head>
+    <title>FitHub</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <%= analytics_init if Rails.env.production? %>
+  </head>
+  <body>
+    <%= render "layouts/header" %>
+    <div class="myContainer">
+      <%= yield %>>
+    </div>
 
-  <%= yield %>
-
-</body>
+  </body>
 </html>
