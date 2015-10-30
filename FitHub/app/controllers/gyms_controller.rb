@@ -5,6 +5,7 @@ class GymsController < ApplicationController
   # GET /gyms.json
   def index
     @gyms = Gym.all
+    @users_gym = UsersGym.new
   end
 
   def results

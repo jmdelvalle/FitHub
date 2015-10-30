@@ -69,6 +69,6 @@ class UsersGymsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def users_gym_params
-      params[:users_gym]
+      params.require(:users_gym).permit(:user_id, :gym_id)
     end
 end
