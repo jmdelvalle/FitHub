@@ -58,6 +58,8 @@
   <% end %>
 </ul>
 
+
+
 <p><%= link_to "Find Friends", users_path %></p>
 <% if current_user.inverse_friends.count == 1 %>
   <h3><%= current_user.inverse_friends.count %> person is following you</h3>
@@ -69,5 +71,15 @@
   <% for user in current_user.inverse_friends %>
     <%=h user.name %>
   <% end %>
+</ul>
+
+<ul>
+  <h3>Gyms you have joined!</h3>
+    <% current_user.gyms.each do |gym| %>
+      <%= link_to(gym) do %>
+        <%= gym.name %><br>
+      <% end %>
+      <%= gym.address %>
+    <% end %>
 </ul>
   </div>

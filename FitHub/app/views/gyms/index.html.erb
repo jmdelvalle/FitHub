@@ -1,10 +1,10 @@
 <div align="center">
   <%= form_tag(results_path, method: "post") do %>
-    <strong>What's The Gym Name?<br></strong>
-    <%= text_field_tag :keyword %><br><br>
-    <strong>City Name<br></strong>
-    <%= text_field_tag :city %><br><br>
-    <%= submit_tag "Search For Gyms" %><br>
+  <strong>What's The Gym Name?<br></strong>
+  <%= text_field_tag :keyword %><br><br>
+  <strong>City Name<br></strong>
+  <%= text_field_tag :city %><br><br>
+  <%= submit_tag "Search For Gyms" %><br>
   <% end %>
 </div><br>
 
@@ -15,34 +15,38 @@
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-body">
-            <% @gyms.each do |gym| %>
             <table class="table table-hover">
+              <thead>
                 <tr>
                   <th>Name</th>
                   <th>Address</th>
                   <th></th>
                 </tr>
-                <tr>
-                  <td>
-                    <%= link_to(gym) do %>
+              </thead>
+              <tbody>
+                <% @gyms.each do |gym| %>
+                  <tr>
+                    <td>
+                      <%= link_to(gym) do %>
                       <%= gym.name %>
-                    <% end %>
-                  </td>
-                  <td><%= gym.address %></td>
-                  <td>
-                    <% if current_user.gyms.include?(gym) %>
-                      <strong>Added!</strong>
-                    <% else %>
-                      <%= form_for @users_gym do |f| %>
+                      <% end %>
+                    </td>
+                    <td><%= gym.address %></td>
+                    <td>
+                      <% if current_user.gyms.include?(gym) %>
+                        <strong>Added!</strong>
+                      <% else %>
+                        <%= form_for @users_gym do |f| %>
                         <%= f.hidden_field :user_id, :value => current_user.id %>
                         <%= f.hidden_field :gym_id, :value => gym.id %>
                         <%= f.submit "Add To My Gyms" %>
                       <% end %>
-                    <% end %>
-                  </td>
-                </tr>
-              </table>
-            <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+              <% end %>
+            </table>
           </div>
         </div>
       </div>
