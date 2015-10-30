@@ -2,9 +2,12 @@
 <div class="row">
   <div class="col-md-3"></div>
   <div class="col-md-6">
-    <div class="well well-sm">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <center><h1><%= @user.name %></h1></center>
+      </div>
       <center>
-        <h1><%= @user.name %></h1><br>
         <h2>Most Recent Workout</h2>
         <%= link_to(@workout) do %>
           <h3><%= @user.workouts.where(:user_id => @user.id).last.name%></h3>
