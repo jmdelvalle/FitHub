@@ -22,7 +22,17 @@
 
 <div align="center"><h1><%= current_user.name %></h1><br></div>
   <div class="row">
-    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      <ul>
+        <h3>Gyms you have joined!</h3>
+          <% current_user.gyms.each do |gym| %>
+            <%= link_to(gym) do %>
+              <%= gym.name %><br>
+            <% end %>
+            <%= gym.address %>
+          <% end %>
+      </ul>
+    </div>
     <div class="col-md-6">
       <div class= "well well-sm">
         <div align="center">
@@ -43,43 +53,37 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3"></div>
-    <% if current_user.friendships.count == 1 %>
-      <h3>Following <%= current_user.friendships.count %> person</h3>
-    <% else %>
-      <h3>Following <%= current_user.friendships.count %> people</h3>
-    <% end %>
-<ul>
-  <% for friendship in current_user.friendships %>
-
-        <%=h friendship.friend.name %> |
-        <%= link_to "Remove", friendship, :method => :delete %><br>
-
-  <% end %>
-</ul>
-
-
-
-<p><%= link_to "Find Friends", users_path %></p>
-<% if current_user.inverse_friends.count == 1 %>
-  <h3><%= current_user.inverse_friends.count %> person is following you</h3>
-<% else %>
-  <h3><%= current_user.inverse_friends.count %> people are following you</h3>
-<% end %>
-
-<ul>
-  <% for user in current_user.inverse_friends %>
-    <%=h user.name %>
-  <% end %>
-</ul>
-
-<ul>
-  <h3>Gyms you have joined!</h3>
-    <% current_user.gyms.each do |gym| %>
-      <%= link_to(gym) do %>
-        <%= gym.name %><br>
+    <div class="col-md-3">
+      <% if current_user.friendships.count == 1 %>
+        <h3>Following <%= current_user.friendships.count %> person</h3>
+      <% else %>
+        <h3>Following <%= current_user.friendships.count %> people</h3>
       <% end %>
-      <%= gym.address %>
+  <ul>
+    <% for friendship in current_user.friendships %>
+
+          <%=h friendship.friend.name %> |
+          <%= link_to "Remove", friendship, :method => :delete %><br>
+
     <% end %>
-</ul>
+  </ul>
+
+
+
+  <p><%= link_to "Find Friends", users_path %></p>
+  <% if current_user.inverse_friends.count == 1 %>
+    <h3><%= current_user.inverse_friends.count %> person is following you</h3>
+  <% else %>
+    <h3><%= current_user.inverse_friends.count %> people are following you</h3>
+  <% end %>
+
+  <ul>
+    <% for user in current_user.inverse_friends %>
+      <%=h user.name %>
+    <% end %>
+  </ul>
+    </div>
+
+
+
   </div>
