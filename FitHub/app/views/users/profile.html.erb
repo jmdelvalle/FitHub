@@ -17,7 +17,6 @@
     </p>
   </div>
 </div>
-
 <% end %>
 
 <div align="center"><h1><%= current_user.name %></h1><br></div>
@@ -62,7 +61,7 @@
   <ul>
     <% for friendship in current_user.friendships %>
 
-          <%=h friendship.friend.name %> |
+          <%= friendship.friend.name %> |
           <%= link_to "Remove", friendship, :method => :delete %><br>
 
     <% end %>
@@ -79,11 +78,8 @@
 
   <ul>
     <% for user in current_user.inverse_friends %>
-      <%=h user.name %>
+      <%= user.name %>
     <% end %>
   </ul>
     </div>
-
-
-
   </div>
