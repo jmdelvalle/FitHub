@@ -35,7 +35,7 @@
           <%= gym.address %><br>
           <% if gym.joined_gyms(current_user) %>
             <%= form_for gym.joined_gyms(current_user), method: :delete do |f| %>
-            <h4><%= f.submit "Unfollow This Gym", :class => "btn btn-primary btn-xs"%></h4>
+            <h4><%= f.submit "Unfollow This Gym", class: "btn btn-primary btn-xs"%></h4>
             <% end %>
           <% end %>
           <% end %>
