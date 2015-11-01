@@ -1,12 +1,14 @@
 class User < ActiveRecord::Base
-  has_many :gyms_users
-  has_many :gyms, through: :gyms_users
+  has_many :users_gyms
+  has_many :gyms, through: :users_gyms
   has_many :users_workouts
   has_many :workouts, through: :users_workouts
   has_many :friendships
   has_many :friends, :through => :friendships
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+  has_many :likes
+  has_many :workouts, :through => :likes
   def self.sign_in_from_omniauth(auth)
     find_by(provider: auth['provider'], uid: auth['uid']) || create_user_from_omniauth(auth)
   end

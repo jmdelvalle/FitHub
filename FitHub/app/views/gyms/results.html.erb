@@ -1,0 +1,30 @@
+<% @gyms_results.each do |element| %>
+  <% gym_address = element["formatted_address"] %>
+  <% if gym_address.include?(@city.capitalize) %>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="container-fluid">
+        <div class="well well-sm">
+          <div align="center">
+            <h4><%= element["name"] %></h4>
+            <h4><%= gym_address %></h4>
+            <h4><%= link_to "Map", "http://maps.google.com/?q=#{gym_address}" %></h4>
+            <%= form_for(Gym.new, method: :post) do |f| %>
+              <%= f.hidden_field :name, :value => element.name %>
+              <%= f.hidden_field :address, :value => gym_address %>
+              <%= f.hidden_field :latitude, :value => element.lat %>
+              <%= f.hidden_field :longitude, :value => element.lng %>
+              <%= f.submit "Add Gym To FitHub Database", :class => "btn btn-primary" %><br>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+
+  </div>
+
+  <% end %>
+<% end %>

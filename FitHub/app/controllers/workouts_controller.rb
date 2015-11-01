@@ -18,10 +18,14 @@ class WorkoutsController < ApplicationController
   def my_workouts
     @my_workouts = current_user.workouts
   end
-
+  def followed
+    @my_workouts = current_user.workouts
+  end
+  
   # GET /workouts/1
   # GET /workouts/1.json
   def show
+    @like = Like.new
     @users_workout = UsersWorkout.new
   end
 
@@ -55,11 +59,11 @@ class WorkoutsController < ApplicationController
   # PATCH/PUT /workouts/1.json
   def update
     respond_to do |format|
-      if @workout.update(workout_params)
+      if @workout.update(workout_params) && @workout.user_id == current_user.id
         format.html { redirect_to @workout, notice: 'Workout was successfully updated.' }
         format.json { render :show, status: :ok, location: @workout }
       else
-        format.html { render :edit }
+        format.html { redirect_to @workout, notice: 'You are not allowed to edit this workout!' }
         format.json { render json: @workout.errors, status: :unprocessable_entity }
       end
     end
@@ -83,6 +87,6 @@ class WorkoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
-      params.require(:workout).permit(:name, :category, :user_id, :description, :challenges, :exercise_ids => [])
+      params.require(:workout).permit(:name, :likes, :category, :user_id, :description, :challenges, :exercise_ids => [])
     end
 end

@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+  <div align="center">
+    <h3><%= @gym.name %></h3>
+    <h3><%= @gym.address %></h3>
+  </div>
+  <div class="container-fluid">
+    <div align="center">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4>All The People In This Gym</h4>
+            </div>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <center>
+                      <th>Name</th>
+                    </center>
+                  </tr>
+                  <% @gym.users.each do |user| %>
+                  <tr>
+                    <td>
+                        <%= link_to(user) do %>
+                          <%= user.name %>
+                        <% end %>
+                      <% end %>
+                    </td>
+                  </tr>
+                </thead>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<center>
+  <h2><%= link_to 'Back', gyms_path %></h2>
+</center>

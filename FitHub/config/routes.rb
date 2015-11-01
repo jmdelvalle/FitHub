@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :likes
+
   resources :friendships
 
   root 'pages#index'
@@ -12,9 +14,11 @@ Rails.application.routes.draw do
   resources :users
   resources :workouts
   resources :users_workouts
-  resources :gyms_users
+  resources :users_gyms
   get 'my_workouts', to: 'workouts#my_workouts'
-
+  get 'followed', to: 'workouts#followed'
+  post 'results', to: 'gyms#results'
+  resources :gyms
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
