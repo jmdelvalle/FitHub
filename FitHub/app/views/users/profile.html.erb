@@ -60,7 +60,6 @@
           <%= current_user.c_deadlift %>
           lbs<br></h5>
       </div><br><br>
-
       <div align="center">
         <h2>Your Future Goals</h2>
         <h5>Target Body Weight:
@@ -83,16 +82,14 @@
   </div>
   <div class="row">
     <div class="col-md-3">
-
       <div class="panel panel-primary">
         <div class="panel-heading">Friends</div>
         <div class="panel-body">
           <% if current_user.friendships.count == 1 %>
-          <h3>Following:
-            <%= current_user.friendships.count %></h3>
+          <i class="fa fa-user fa-2x"> Following: <%= current_user.friendships.count %></i>
           <% else %>
-          <h3>Following:
-            <%= current_user.friendships.count %></h3>
+          <i class="fa fa-user fa-2x">Following: <%= current_user.friendships.count %> </i>
+            
           <% end %>
           <ul>
             <% for friendship in current_user.friendships %>
@@ -106,13 +103,13 @@
 
           <p><%= link_to "Find Friends", users_path, class: "btn btn-primary btn-xs" %></p>
           <% if current_user.inverse_friends.count == 1 %>
-          <h3>Followers:
+          <i class="fa fa-users fa-2x"> Followers:
             <%= current_user.inverse_friends.count %>
-          </h3>
+          </i>
           <% else %>
-          <h3>Followers:
+          <i class="fa fa-users fa-2x"> Followers:
             <%= current_user.inverse_friends.count %>
-          </h3>
+          </i>
           <% end %>
 
           <ul>
