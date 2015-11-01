@@ -16,6 +16,7 @@
     <div class="well well-sm">
       <div align="center">
         <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :creator, :value => current_user.name %>
         <div class="field">
           <h3><%= f.label :name %><br></h3>
           <%= f.text_field :name %>
@@ -145,7 +146,7 @@
             </div>
           </div>
 
-            <div class="actions"><br><%= f.submit %></div>
+            <div class="actions"><br><%= f.submit "Create Your Workout!", class: "btn btn-primary" %></div>
           <% end %>
             <h3><%= link_to 'Back', workouts_path %></h3>
         </div>

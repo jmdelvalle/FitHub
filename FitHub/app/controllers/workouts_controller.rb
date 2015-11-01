@@ -12,7 +12,11 @@ class WorkoutsController < ApplicationController
   end
 
   def index
-    @workouts = Workout.all
+    if params[:search]
+      @workouts = Workout.search(params[:search])
+    else
+      @workouts = Workout.all
+    end
   end
 
   def my_workouts
@@ -21,7 +25,7 @@ class WorkoutsController < ApplicationController
   def followed
     @my_workouts = current_user.workouts
   end
-  
+
   # GET /workouts/1
   # GET /workouts/1.json
   def show
@@ -87,6 +91,6 @@ class WorkoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
-      params.require(:workout).permit(:name, :likes, :category, :user_id, :description, :challenges, :exercise_ids => [])
+      params.require(:workout).permit(:name, :likes, :creator, :category, :user_id, :description, :challenges, :exercise_ids => [])
     end
 end

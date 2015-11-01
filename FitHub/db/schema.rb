@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029202921) do
+ActiveRecord::Schema.define(version: 20151101222202) do
 
   create_table "exercises", force: :cascade do |t|
     t.string   "name"
@@ -36,14 +36,6 @@ ActiveRecord::Schema.define(version: 20151029202921) do
     t.float  "longitude"
     t.float  "latitude"
   end
-
-  create_table "gyms_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "gym_id",  null: false
-  end
-
-  add_index "gyms_users", ["gym_id", "user_id"], name: "index_gyms_users_on_gym_id_and_user_id"
-  add_index "gyms_users", ["user_id", "gym_id"], name: "index_gyms_users_on_user_id_and_gym_id"
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
@@ -84,6 +76,7 @@ ActiveRecord::Schema.define(version: 20151029202921) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "creator"
   end
 
 end

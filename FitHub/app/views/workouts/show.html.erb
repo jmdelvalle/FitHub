@@ -10,9 +10,7 @@
         <div class="col-md-6">
           <div class="row">
             <div class="well well-sm">
-              <% creator_id = @workout.user_id %>
-              <% creator = User.find_by_id(creator_id).name %>
-              <h3>Created By: <%= creator %></h3>
+              <h3>Created By: <%= @workout.creator %></h3>
               <h3>Workout: <%= @workout.name %></h3>
               <h3>Category: <%= @workout.category %></h3>
               <h3>Description of Workout: <%= @workout.description %></h3>
