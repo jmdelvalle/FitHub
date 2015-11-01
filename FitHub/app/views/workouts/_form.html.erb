@@ -22,7 +22,12 @@
         </div>
         <div class="field">
           <h3><%= f.label :category %><br></h3>
-          <%= f.text_field :category %>
+          <%= radio_button("workout", "category", "Bodybuilding") %> Bodybuilding <br>
+          <%= radio_button("workout", "category", "Strength") %> Strength <br>
+          <%= radio_button("workout", "category", "High Intensity Interval Training") %> High Intensity Interval Training <br>
+          <%= radio_button("workout", "category", "Upper Body") %> Upper Body <br>
+          <%= radio_button("workout", "category", "Lower Body") %> Lower Body <br>
+          <%= radio_button("workout", "category", "Core") %> Core <br>
         </div>
         <div class="field">
           <h3><%= f.label :description %><br></h3>
