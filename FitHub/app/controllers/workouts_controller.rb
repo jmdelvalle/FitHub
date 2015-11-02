@@ -22,8 +22,17 @@ class WorkoutsController < ApplicationController
   def my_workouts
     @my_workouts = current_user.workouts
   end
+
   def followed
-    @my_workouts = current_user.workouts
+    @followed_workout_ids = []
+    @followed_workouts = []
+    UsersWorkout.where(:user_id => current_user.id).each do |x|
+      @followed_workout_ids << x.workout_id
+    end
+    @followed_workout_ids.each do |id|
+      @followed_workouts << Workout.find(id)
+    end
+
   end
 
   # GET /workouts/1

@@ -22,6 +22,6 @@ class Workout < ActiveRecord::Base
    else amt_for_creator_search > amt_for_name_search && amt_for_creator_search > amt_for_category_search
      where('creator like ?', "%#{search}%")
    end
-
  end
+
 end

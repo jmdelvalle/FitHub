@@ -34,31 +34,7 @@
   <% else %>
     <center><h2>People like you have created <%= @workouts.count %> workouts on FitHub!</h2></center>
   <% end %>
-  <!-- <table>
-    <thead>
-      <tr>
-        <th>User ID</th>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Description</th>
-        <th>Challenges</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @workouts.each do |workout| %>
-        <tr>
-          <td><%= workout.user_id %>
-          <td><%= workout.name %></td>
-          <td><%= workout.category %></td>
-          <td><%= workout.description %></td>
-          <td><%= workout.challenges %></td>
-          <td><%= link_to 'Show', workout %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table> -->
+  
   <center>
     <%= form_tag workouts_path, :method => 'get' do %>
       <p><i>Search by Category, Workout Name, or Creator</i><br>
