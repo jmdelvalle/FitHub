@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<div class="container-fluid" id="medium_size">
+  <div class="alert alert-success" role="alert">
+    <p align="center">
+      <%= notice %>
+    </p>
+  </div>
+</div>
+<% end %>
   <div align="center">
     <h3><%= @gym.name %></h3>
     <h3><%= @gym.address %></h3>

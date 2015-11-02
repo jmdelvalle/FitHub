@@ -5,12 +5,13 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
         <li><%= link_to "Home", users_home_path %></li>
         <li><%= link_to "All Workouts", workouts_path %></li>
         <li><%= link_to "Find Gyms", gyms_path %></li>
         <li><%= link_to "Find Friends", users_path %></li>
 
-        <% if current_user %>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             <%= current_user.name %> <span class="caret"></span></a>
