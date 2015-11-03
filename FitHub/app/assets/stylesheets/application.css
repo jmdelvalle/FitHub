@@ -5,3 +5,25 @@
  *= require_self
  *= require_tree .
 */
+
+.footer {
+}
+.footer .row {
+  padding: 20px;
+  background-color: #3c9ce7;
+  color: #ffffff;
+  border-color: #368CD0;
+}
+.footer .in {
+	text-align: center;
+  min-height: 150px;
+  border: 0px solid;
+  box-sizing: border-box;
+  padding: 20px;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.fa {
+	color: #ffffff;
+}

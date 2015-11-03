@@ -6,7 +6,7 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-  body { background: #bbbbc9 !important;}
+  body { background: #d1d1d1 !important;}
   .navbar-default {
     background-color: #3c9ce7;
     border-color: #368CD0;
@@ -77,18 +77,48 @@ textarea{
   height: 125px;
 }
 #centered_div {
-    top: 50%;
-    left: 50%;
-    width:30em;
-    height:10em;
+    margin:auto;
+    width:60em;
+    height:20em;
     text-align: center;
     vertical-align: middle;
-    margin-top: -9em; /*set to a negative number 1/2 of your height*/
-    margin-left: -15em; /*set to a negative number 1/2 of your width*/
-    position:fixed;
 }
 
 #medium_size{
   width: 310px;
   height: 80px;
 }
+
+.hero{    
+    color: #3c9ce7;
+    z-index: 100;
+    position: relative;
+    height: 500px;
+    background-position: 50% 50%;
+    border: 2px solid;
+    border-color: #368CD0;
+    background-size: cover;
+  background-image: url("http://www.kinkajou.net/wallpaper/wallpaper/wallpaper-for-bodybuilders-weightlifters-motivatio-wallpaper-weightlifting-wallpapers-borders-hd-for-phone-chicago-abyss-removal-maker-magazine-wide-calculator.jpg");
+}
+
+.hero .about{
+  padding: 20px;
+    border: 1px solid;
+    border-color: #368CD0;
+    background-clip: content-box;
+    background-color: rgba(54, 140, 208, .35);
+    color: #ffffff;
+    width: 75%;
+    height: 100%;
+    font-weight: 100;
+    position: relative;
+    font-size: 1rem;
+    text-align: center;
+}
+ #fitblue{
+  color: #368CD0;
+ }
+ #fitbackground{
+  background-color: #368CD0;
+  color: #ffffff;
+ }
