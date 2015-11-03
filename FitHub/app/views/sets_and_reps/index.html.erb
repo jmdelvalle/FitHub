@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sets And Reps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sets_and_reps.each do |sets_and_rep| %>
+      <tr>
+        <td><%= link_to 'Show', sets_and_rep %></td>
+        <td><%= link_to 'Edit', edit_sets_and_rep_path(sets_and_rep) %></td>
+        <td><%= link_to 'Destroy', sets_and_rep, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sets and rep', new_sets_and_rep_path %>
