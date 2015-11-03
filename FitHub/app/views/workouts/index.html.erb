@@ -12,7 +12,6 @@
     workouts that matches your search!</h2>
 </center>
 <% end %>
-<% @workouts.each do |workout| %>
 <div class="container-fluid">
   <div align="center">
     <div class="row">
@@ -28,6 +27,7 @@
               <th>Creator</th>
               <th></th>
             </tr>
+            <% @workouts.each do |workout| %>
             <tr>
               <td><%= link_to workout.name, workout %></td>
               <td><%= workout.category %></td>
@@ -37,6 +37,7 @@
                   <%= workout.likes.count %></i>
               </td>
             </tr>
+            <% end %>
 
           </table>
         </div>
@@ -44,7 +45,6 @@
     </div>
   </div>
 </div>
-<% end %>
 <center>
   <h3><%= link_to "Back To All Workouts", workouts_path %></h3>
 </center>
@@ -75,7 +75,6 @@
   </p>
   <% end %>
 </center>
-<% @workouts.each do |workout| %>
 <div class="container-fluid">
   <div align="center">
     <div class="row">
@@ -91,6 +90,7 @@
               <th>Creator</th>
               <th></th>
             </tr>
+            <% @workouts.each do |workout| %>
             <tr>
               <td><%= link_to workout.name, workout %></td>
               <td><%= workout.category %></td>
@@ -100,6 +100,7 @@
                   <%= workout.likes.count %></i>
               </td>
             </tr>
+            <% end %>
 
           </table>
         </div>
@@ -107,5 +108,4 @@
     </div>
   </div>
 </div>
-<% end %>
 <% end %>
