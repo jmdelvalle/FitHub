@@ -81,7 +81,7 @@
           <ul>
             <% for friendship in current_user.friendships %>
 
-            <%=h friendship.friend.name %>
+            <%= friendship.friend.name %>
             |
             <%= link_to "Remove", friendship, :method => :delete %><br>
 
