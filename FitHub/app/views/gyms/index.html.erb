@@ -37,7 +37,6 @@
                         <strong>Added!</strong>
                       <% else %>
                         <%= form_for @users_gym do |f| %>
-                        <%= f.hidden_field :user_id, :value => current_user.id %>
                         <%= f.hidden_field :gym_id, :value => gym.id %>
                         <%= f.submit "Add To My Gyms", class: "btn btn-primary btn-xs" %>
                       <% end %>

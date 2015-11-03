@@ -22,8 +22,17 @@ class WorkoutsController < ApplicationController
   def my_workouts
     @my_workouts = current_user.workouts
   end
+
   def followed
-    @my_workouts = current_user.workouts
+    @followed_workout_ids = []
+    @followed_workouts = []
+    UsersWorkout.where(:user_id => current_user.id).each do |x|
+      @followed_workout_ids << x.workout_id
+    end
+    @followed_workout_ids.each do |id|
+      @followed_workouts << Workout.find(id)
+    end
+
   end
 
   # GET /workouts/1
@@ -45,11 +54,18 @@ class WorkoutsController < ApplicationController
   # POST /workouts
   # POST /workouts.json
   def create
+
     @workout = Workout.new(workout_params)
-    @workout.users << current_user
     respond_to do |format|
 
       if @workout.save
+        # create the realationship between the workout and the user
+        UsersWorkout.create(:user_id => current_user.id, :workout_id => @workout.id)
+        # creating a relationship between each exercise and the workout that it is a part of
+        params[:workout][:exercise_ids].each do |id_num|
+          WorkoutsExercise.create(:workout_id => @workout.id, :exercise_id => id_num)
+        end
+
         format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
         format.json { render :show, status: :created, location: @workout }
       else

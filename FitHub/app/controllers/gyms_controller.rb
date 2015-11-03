@@ -37,7 +37,7 @@ class GymsController < ApplicationController
 
     respond_to do |format|
       if @gym.save
-        format.html { redirect_to @gym, notice: 'Gym was successfully created.' }
+        format.html { redirect_to gyms_path, notice: 'Added Gym to FitHub Database!' }
         format.json { render :show, status: :created, location: @gym }
       else
         format.html { render :new }

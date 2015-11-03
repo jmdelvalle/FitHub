@@ -1,22 +1,9 @@
 <% if notice %>
-<div class="container-fluid" id="medium_size">
-  <div class="alert alert-success" role="alert">
-    <p align="center">
-      <%= notice %>
-    </p>
-  </div>
-</div>
-
+  <%= display_status("success", "notice").html_safe %>
 <% end %>
 
 <% if alert %>
-<div class="container-fluid" id="medium_size">
-  <div class="alert alert-danger" role="alert">
-    <p align="center">
-      <%= alert %>
-    </p>
-  </div>
-</div>
+  <%= display_status("danger", "alert").html_safe %>
 <% end %>
 
 <div align="center">
@@ -89,12 +76,12 @@
           <i class="fa fa-user fa-2x"> Following: <%= current_user.friendships.count %></i>
           <% else %>
           <i class="fa fa-user fa-2x">Following: <%= current_user.friendships.count %> </i>
-            
+
           <% end %>
           <ul>
             <% for friendship in current_user.friendships %>
 
-            <%=h friendship.friend.name %>
+            <%= friendship.friend.name %>
             |
             <%= link_to "Remove", friendship, :method => :delete %><br>
 
