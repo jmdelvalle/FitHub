@@ -39,7 +39,7 @@
               </center>
               <% end %>
             <% end %>
-            <% if able_to_like(current_user, @workout).empty? %>
+            <% if able_to_like(current_user, @workout).empty? && @workout.user_id != current_user.id %>
               <%= form_for @like, method: :post do |f| %>
               <%= f.hidden_field :workout_id, :value => @workout.id%>
               <%= f.hidden_field :user_id, :value => current_user.id%>

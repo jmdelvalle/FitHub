@@ -1,9 +1,10 @@
 class Workout < ActiveRecord::Base
- has_many :exercises
+ has_many :workouts_exercises
+ has_many :exercises, through: :workouts_exercises
  has_many :users_workouts
  has_many :users, through: :users_workouts
  has_many :likes
- has_many :users, through: :likes
+ # has_many :users, through: :likes
 
 
  def followed_workouts(user)

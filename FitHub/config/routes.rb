@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :workouts
   resources :users_workouts
   resources :users_gyms
+  resources :workouts_exercises
   get 'my_workouts', to: 'workouts#my_workouts'
   get 'followed', to: 'workouts#followed'
   post 'results', to: 'gyms#results'
