@@ -6,6 +6,7 @@ class CreateWorkouts < ActiveRecord::Migration
       t.text :description
       t.text :challenges
       t.belongs_to :user
+      t.string :days
 
       t.timestamps null: false
     end

@@ -102,11 +102,12 @@ textarea{
 }
 
 .hero .about{
+      font-family: 'Open Sans', sans-serif;
   padding: 20px;
     border: 1px solid;
     border-color: #368CD0;
     background-clip: content-box;
-    background-color: rgba(54, 140, 208, .35);
+    background-color: rgba(0, 0, 0, .71);
     color: #ffffff;
     width: 75%;
     height: 100%;
