@@ -53,8 +53,20 @@
               <!-- Finished -->
               <div class="panel-collapse collapse" id="armExercises" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                  <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Arms'"), :id, :name) do |b| %>
-                    <%= b.label(:"name" => b.value) { b.check_box + " " + b.text } %><br>
+
+                    <% Exercise.where("muscle_group = 'Arms'").each do |element| %>
+                      <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
+                      <script type="text/javascript">
+                        $("#workout_exercise_ids_<%= element.id %>").click(function() {
+                          var html = '<div class="sets_and_reps">Number of Sets: <input type="hidden" name="details[][ex_num]" value ="<%=element.id %>"><input type="text" name="details[][sets]" id="details_sets" > Number of Reps: <input type="text" name="details[][reps]" id="details_reps" ></div>'
+                          if ($(this).is(':checked')) {
+                            $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
+                          } else {
+                            $(this).siblings('.sets_and_reps').remove('.sets_and_reps')
+                          }
+                        })
+                      </script>
+
                     <% end %>
                 </div>
               </div>
@@ -70,8 +82,20 @@
               <!-- Finished -->
               <div class="panel-collapse collapse" id="legExercises" role="tabpanel" aria-labelledby="headingTwo">
                 <div class="panel-body">
-                  <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Legs'"), :id, :name) do |b| %>
-                     <%= b.label(:"name" => b.value) { b.check_box + " " + b.text } %><br>
+
+                     <% Exercise.where("muscle_group = 'Legs'").each do |element| %>
+                       <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
+                       <script type="text/javascript">
+                         $("#workout_exercise_ids_<%= element.id %>").click(function() {
+                           var html = '<div class="sets_and_reps">Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                           if ($(this).is(':checked')) {
+                             $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
+                           } else {
+                             $(this).siblings('.sets_and_reps').remove('.sets_and_reps')
+                           }
+                         })
+                       </script>
+
                      <% end %>
                 </div>
               </div>
@@ -87,8 +111,20 @@
               <!-- Finished -->
               <div class="panel-collapse collapse" id="backExercises" role="tabpanel" aria-labelledby="headingThree">
                 <div class="panel-body">
-                  <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Back'"), :id, :name) do |b| %>
-                      <%= b.label(:"name" => b.value) { b.check_box + " " + b.text } %><br>
+
+                      <% Exercise.where("muscle_group = 'Back'").each do |element| %>
+                        <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
+                        <script type="text/javascript">
+                          $("#workout_exercise_ids_<%= element.id %>").click(function() {
+                            var html = '<div class="sets_and_reps">Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                            if ($(this).is(':checked')) {
+                              $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
+                            } else {
+                              $(this).siblings('.sets_and_reps').remove('.sets_and_reps')
+                            }
+                          })
+                        </script>
+
                       <% end %>
                 </div>
               </div>
@@ -104,8 +140,20 @@
               <!-- Finished -->
               <div class="panel-collapse collapse" id="chestExercises" role="tabpanel" aria-labelledby="headingFour">
                 <div class="panel-body">
-                  <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Chest'"), :id, :name) do |b| %>
-                        <%= b.label(:"name" => b.value) { b.check_box + " " + b.text } %><br>
+
+                        <% Exercise.where("muscle_group = 'Chest'").each do |element| %>
+                          <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
+                          <script type="text/javascript">
+                            $("#workout_exercise_ids_<%= element.id %>").click(function() {
+                              var html = '<div class="sets_and_reps">Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                              if ($(this).is(':checked')) {
+                                $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
+                              } else {
+                                $(this).siblings('.sets_and_reps').remove('.sets_and_reps')
+                              }
+                            })
+                          </script>
+
                         <% end %>
                 </div>
               </div>
@@ -121,8 +169,20 @@
               <!-- Finished -->
               <div class="panel-collapse collapse" id="shoulderExercises" role="tabpanel" aria-labelledby="headingFive">
                 <div class="panel-body">
-                  <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Chest'"), :id, :name) do |b| %>
-                        <%= b.label(:"name" => b.value) { b.check_box + " " + b.text } %><br>
+
+                        <% Exercise.where("muscle_group = 'Shoulders'").each do |element| %>
+                          <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
+                          <script type="text/javascript">
+                            $("#workout_exercise_ids_<%= element.id %>").click(function() {
+                              var html = '<div class="sets_and_reps">Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                              if ($(this).is(':checked')) {
+                                $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
+                              } else {
+                                $(this).siblings('.sets_and_reps').remove('.sets_and_reps')
+                              }
+                            })
+                          </script>
+
                         <% end %>
                 </div>
               </div>
@@ -138,8 +198,20 @@
 
               <div class="panel-collapse collapse" id="absExercises" role="tabpanel" aria-labelledby="headingSix">
                 <div class="panel-body">
-                  <%= collection_check_boxes(:workout, :exercise_ids, Exercise.where("muscle_group = 'Abs'"), :id, :name) do |b| %>
-                  <%= b.label(:"name" => b.value) { b.check_box + " " + b.text } %><br>
+
+                  <% Exercise.where("muscle_group = 'Abs'").each do |element| %>
+                    <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
+                    <script type="text/javascript">
+                      $("#workout_exercise_ids_<%= element.id %>").click(function() {
+                        var html = '<div class="sets_and_reps">Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                        if ($(this).is(':checked')) {
+                          $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
+                        } else {
+                          $(this).siblings('.sets_and_reps').remove('.sets_and_reps')
+                        }
+                      })
+                    </script>
+
                   <% end %>
                 </div>
               </div>

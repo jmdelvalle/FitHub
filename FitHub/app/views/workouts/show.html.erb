@@ -17,7 +17,9 @@
               <h3>Challenges: <%= @workout.challenges %></h3>
             </div>
           </div>
-            <% @workout.exercises.each do |e| %>
+          <% @workout.exercises.each do |e| %>
+
+
               <div class="well well-sm">
                 <h3><%= e.name %><br></h3>
                 <h5>Category: <%= e.muscle_group %><br></h5>
@@ -25,10 +27,17 @@
                 <h5> <p>
                   How-To: <%= e.guide %><br>
                 </p><br></h5>
+
+                  <h4>Sets For This Exercise: <%= SetsAndRep.where(:exercise_id => e.id, :workout_id => @workout.id)[0].sets %></h4>
+                  <h4>Reps For This Exercise: <%= SetsAndRep.where(:exercise_id => e.id, :workout_id => @workout.id)[0].reps %></h4>
+
+
               </div>
             <% end %>
             <!-- If the first user for the workout is not the current user  -->
             <!-- And if the users for the workout includes current user -->
+
+
 
             <% if able_to_join(current_user, @workout) %>
               <%= form_for @users_workout, method: :post do |f| %>
@@ -61,7 +70,7 @@
 
 <% if @workout.user_id == current_user.id %>
   <center>
-    <h3><%= link_to 'Edit', edit_workout_path(@workout) %> | <%= link_to 'Back', my_workouts_path %></h3>
+    <h3><%= link_to 'Edit', edit_workout_path(@workout) %> | <%= link_to 'Back', my_workouts_path %> | <%= link_to 'Destroy', @workout, method: :delete, data: { confirm: 'Are you sure?' } %></h3>
   </center>
 <% else %>
 <center>

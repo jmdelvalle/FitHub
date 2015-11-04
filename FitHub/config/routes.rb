@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :friendships
 
   root 'pages#index'
-
   get 'users/profile'
   get 'users/home'
   get 'auth/:provider/callback', to: 'sessions#create'
