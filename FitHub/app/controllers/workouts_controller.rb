@@ -101,6 +101,11 @@ class WorkoutsController < ApplicationController
   # DELETE /workouts/1.json
   def destroy
     @workout.destroy
+    UsersWorkout.where(:workout_id => @workout.id).destroy_all
+    SetsAndRep.where(:workout_id => @workout.id).destroy_all
+    WorkoutsExercise.where(:workout_id => @workout.id).destroy_all
+    Like.where(:workout_id => @workout.id).destroy_all
+
     respond_to do |format|
       format.html { redirect_to my_workouts_url, notice: 'Workout was successfully destroyed.' }
       format.json { head :no_content }
