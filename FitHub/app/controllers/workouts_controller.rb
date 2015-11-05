@@ -20,7 +20,7 @@ class WorkoutsController < ApplicationController
   end
 
   def my_workouts
-    @my_workouts = current_user.workouts
+    @my_workouts = current_user.workouts + Workout.where(:user_id => current_user.id)
   end
 
   def followed
@@ -56,15 +56,23 @@ class WorkoutsController < ApplicationController
   def create
 
     @workout = Workout.new(workout_params)
+
+
     respond_to do |format|
 
       if @workout.save
+
+        #wire up the sets and reps for this particular workout
+        params[:details].each do |data|
+          SetsAndRep.create(:workout_id => @workout.id, :exercise_id => data[:ex_num].to_i, :sets => data[:sets].to_i, :reps => data[:reps].to_i)
+        end
         # create the realationship between the workout and the user
         UsersWorkout.create(:user_id => current_user.id, :workout_id => @workout.id)
         # creating a relationship between each exercise and the workout that it is a part of
-        params[:workout][:exercise_ids].each do |id_num|
-          WorkoutsExercise.create(:workout_id => @workout.id, :exercise_id => id_num)
-        end
+        # params[:workout][:exercise_ids].each do |id_num|
+        #   binding.pry
+        #   WorkoutsExercise.create(:workout_id => @workout.id, :exercise_id => id_num)
+        # end
 
         format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
         format.json { render :show, status: :created, location: @workout }
@@ -93,6 +101,11 @@ class WorkoutsController < ApplicationController
   # DELETE /workouts/1.json
   def destroy
     @workout.destroy
+    UsersWorkout.where(:workout_id => @workout.id).destroy_all
+    SetsAndRep.where(:workout_id => @workout.id).destroy_all
+    WorkoutsExercise.where(:workout_id => @workout.id).destroy_all
+    Like.where(:workout_id => @workout.id).destroy_all
+
     respond_to do |format|
       format.html { redirect_to my_workouts_url, notice: 'Workout was successfully destroyed.' }
       format.json { head :no_content }
@@ -109,4 +122,5 @@ class WorkoutsController < ApplicationController
     def workout_params
       params.require(:workout).permit(:name, :likes, :creator, :category, :user_id, :description, :challenges, :days => [], :exercise_ids => [])
     end
+
 end

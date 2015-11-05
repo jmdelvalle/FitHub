@@ -18,4 +18,5 @@ module ApplicationHelper
   def able_to_like(user, workout)
     Like.where(:user_id => user.id,:workout_id => workout.id)
   end
+
 end

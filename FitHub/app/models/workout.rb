@@ -4,7 +4,10 @@ class Workout < ActiveRecord::Base
  has_many :users_workouts
  has_many :users, through: :users_workouts
  has_many :likes
- # has_many :users, through: :likes
+ has_many :sets_and_reps
+ attr_accessor :sets
+ attr_accessor :reps
+ attr_accessor :ex_num
 
 
  def followed_workouts(user)

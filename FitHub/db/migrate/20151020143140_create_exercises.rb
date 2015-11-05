@@ -6,6 +6,8 @@ class CreateExercises < ActiveRecord::Migration
       t.string :specific_muscles_worked
       t.text :guide
       t.belongs_to :workout
+      t.string :pic_left
+      t.string :pic_right
 
 
       t.timestamps null: false
