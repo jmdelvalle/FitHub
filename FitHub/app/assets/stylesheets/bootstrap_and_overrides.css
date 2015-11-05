@@ -73,8 +73,10 @@
   border-color: #368CD0;
 }
 textarea{
-  width: 485px;
-  height: 125px;
+  max-width: 90%;
+  min-width: 90%;
+  max-height: 200px; 
+  min-height: auto;
 }
 #centered_div {
     margin:auto;

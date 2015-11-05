@@ -5,10 +5,9 @@ gem 'omniauth-twitter'
 gem 'figaro'
 gem 'certified'
 gem 'google_places'
-
-
+gem "rails-erd"
 gem "twitter-bootstrap-rails"
-
+gem "graphviz"
 group :development do
   gem 'rails_db'
 end

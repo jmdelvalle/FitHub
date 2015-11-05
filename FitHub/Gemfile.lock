@@ -56,6 +56,7 @@ GEM
     certified (1.0.0)
     childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
+    choice (0.2.0)
     codemirror-rails (5.6)
       railties (>= 3.0, < 5)
     coderay (1.1.0)
@@ -95,6 +96,7 @@ GEM
     google-analytics-rails (0.0.6)
     google_places (0.32.0)
       httparty (~> 0.13.1)
+    graphviz (0.1.0)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -190,6 +192,11 @@ GEM
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
+    rails-erd (1.4.4)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
     rails_12factor (0.0.3)
@@ -236,6 +243,7 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    ruby-graphviz (1.2.2)
     rubyzip (1.1.7)
     sass (3.4.19)
     sass-rails (5.0.4)
@@ -309,6 +317,7 @@ DEPENDENCIES
   figaro
   google-analytics-rails
   google_places
+  graphviz
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
@@ -317,6 +326,7 @@ DEPENDENCIES
   pg
   pry
   rails (= 4.2.0)
+  rails-erd
   rails_12factor
   rails_db
   rspec-rails
