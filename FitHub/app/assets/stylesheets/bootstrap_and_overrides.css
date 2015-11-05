@@ -73,8 +73,10 @@
   border-color: #368CD0;
 }
 textarea{
-  width: 485px;
-  height: 125px;
+  min-width: 90%;
+  max-width: 90%;
+  max-height: auto;
+  min-height: 175px;
 }
 #centered_div {
     margin:auto;
@@ -89,7 +91,7 @@ textarea{
   height: 80px;
 }
 
-.hero{    
+.hero{
     color: #3c9ce7;
     z-index: 100;
     position: relative;
