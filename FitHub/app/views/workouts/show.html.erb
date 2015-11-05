@@ -27,7 +27,7 @@
                 <h5> <p>
                   How-To: <%= e.guide %><br>
                 </p><br></h5>
-                <img src="<%=e.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= e.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>
+                <div align="center"><img src="<%=e.pic_left %>" style="max-width:47.5%;height:auto"> <img src="<%= e.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:47.5%;height:auto;"></div><br><br>
                   <h4>Sets For This Exercise: <%= SetsAndRep.where(:exercise_id => e.id, :workout_id => @workout.id)[0].sets %></h4>
                   <h4>Reps For This Exercise: <%= SetsAndRep.where(:exercise_id => e.id, :workout_id => @workout.id)[0].reps %></h4>
 
