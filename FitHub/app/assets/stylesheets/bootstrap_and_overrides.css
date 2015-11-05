@@ -6,7 +6,8 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-  body { background: #d1d1d1 !important;}
+
+  body { background: #3c9ce7 !important;}
   .navbar-default {
     background-color: #3c9ce7;
     border-color: #368CD0;
@@ -41,7 +42,7 @@
     background-color: #3c9ce7;
   }
   .navbar-default .navbar-toggle .icon-bar {
-    background-color: #ffffff;
+    background-color: #3c9ce7;
   }
   .navbar-default .navbar-collapse,
   .navbar-default .navbar-form {
