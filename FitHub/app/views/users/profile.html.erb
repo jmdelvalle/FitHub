@@ -1,9 +1,9 @@
 <% if notice %>
-  <%= display_status("success", "notice").html_safe %>
+<%= display_status("success", "notice").html_safe %>
 <% end %>
 
 <% if alert %>
-  <%= display_status("danger", "alert").html_safe %>
+<%= display_status("danger", "alert").html_safe %>
 <% end %>
 
 <div align="center">
@@ -31,24 +31,30 @@
     </div>
   </div>
   <div class="col-md-6">
-    <div class="well well-sm">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div align="center">
+          <h2>
+            <i class="fa fa-bar-chart" id="black-icon"></i>
+            Your Personal Stats</h2>
+          <h5>Current Body Weight:
+            <%= current_user.c_bodyweight %>
+            lbs<br></h5>
+          <h5>Current Bench Weight:
+            <%= current_user.c_bench %>
+            lbs<br></h5>
+          <h5>Current Squat Weight:
+            <%= current_user.c_squat %>
+            lbs<br></h5>
+          <h5>Current Deadlift Weight:
+            <%= current_user.c_deadlift %>
+            lbs<br></h5>
+        </div><br><br>
+      </div>
       <div align="center">
-        <h2>Your Personal Stats</h2>
-        <h5>Current Body Weight:
-          <%= current_user.c_bodyweight %>
-          lbs<br></h5>
-        <h5>Current Bench Weight:
-          <%= current_user.c_bench %>
-          lbs<br></h5>
-        <h5>Current Squat Weight:
-          <%= current_user.c_squat %>
-          lbs<br></h5>
-        <h5>Current Deadlift Weight:
-          <%= current_user.c_deadlift %>
-          lbs<br></h5>
-      </div><br><br>
-      <div align="center">
-        <h2>Your Future Goals</h2>
+        <h2>
+          <i class="fa fa-child" id="black-icon"></i>
+          Your Future Goals</h2>
         <h5>Target Body Weight:
           <%= current_user.t_bodyweight %>
           lbs<br></h5>
@@ -62,7 +68,7 @@
           <%= current_user.t_deadlift %>
           lbs<br></h5><br>
         <div class="button">
-          <h3><%= link_to "Edit Profile",  edit_user_path(current_user.id), class: "btn btn-primary" %></h3>
+          <h3><%= link_to '<i class="fa fa-edit fa-lg"></i> Edit Profile'.html_safe,  edit_user_path(current_user.id), class: "btn btn-primary" %></h3>
         </div>
       </div>
     </div>
@@ -73,9 +79,13 @@
         <div class="panel-heading">Friends</div>
         <div class="panel-body">
           <% if current_user.friendships.count == 1 %>
-          <i class="fa fa-user fa-2x"> Following: <%= current_user.friendships.count %></i>
+          <i class="fa fa-user fa-lg">
+            Following:
+            <%= current_user.friendships.count %></i>
           <% else %>
-          <i class="fa fa-user fa-2x">Following: <%= current_user.friendships.count %> </i>
+          <i class="fa fa-user fa-lg">Following:
+            <%= current_user.friendships.count %>
+          </i>
 
           <% end %>
           <ul>
@@ -90,11 +100,13 @@
 
           <p><%= link_to "Find Friends", users_path, class: "btn btn-primary btn-xs" %></p>
           <% if current_user.inverse_friends.count == 1 %>
-          <i class="fa fa-users fa-2x"> Followers:
+          <i class="fa fa-users fa-2x">
+            Followers:
             <%= current_user.inverse_friends.count %>
           </i>
           <% else %>
-          <i class="fa fa-users fa-2x"> Followers:
+          <i class="fa fa-users fa-2x">
+            Followers:
             <%= current_user.inverse_friends.count %>
           </i>
           <% end %>

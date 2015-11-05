@@ -94,8 +94,10 @@
     padding: 15px;
 }
 
-.sidebar ul li {
-    border-bottom: 1px solid #2c7ab6;
+.sidebar ul li a {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
 }
 
 .sidebar ul li a.active {

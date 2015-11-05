@@ -11,12 +11,18 @@ a {
     color: #eee;
 }
 
+.sidebar ul li a:focus {
+  background-color: #3284c5;
+  color: #eee;
+}
+
+
 .nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
   background-color: #3284c5;
   color: #eee;
 }
 
-.navbar-top-links li a:hover {
+.navbar-top-links li a:hover, .navbar-top-links li a:focus {
   background-color: #3284c5;
   color: #eee;
 }
@@ -31,4 +37,12 @@ a {
 
 .btn-outline:hover {
   background-color: #3c9ce7;
+}
+
+li {
+  text-decoration: none;
+}
+
+#black-icon {
+  color: black;
 }

@@ -48,7 +48,7 @@
 
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          <i class="fa fa-user"></i>
+          <i class="fa fa-user fa-lg"></i>
           <%= current_user.name %>
           <b class="caret"></b>
         </a>
@@ -79,15 +79,32 @@
     <div class="navbar-default sidebar" role="navigation">
       <div class="sidebar-nav navbar-collapse">
         <ul class="nav in" id="side-menu">
-          <div id="Workouts">
-            <li><a aria-controls="collapseOne" aria-expanded="true" data-parent="#accordion" data-target="#armExercises" data-toggle="collapse" href="#armExercises" role="button">Arm Exercises</a></li>
-            <div aria-labelledby="headingOne" class="panel-collapse collapse" id="armExercises" role="tabpanel">
-            </div>
-          </div>
-          <li><%= link_to "Home", users_home_path %></li>
-          <li><%= link_to "All Workouts", workouts_path %></li>
-          <li><%= link_to "Find Gyms", gyms_path %></li>
-          <li><%= link_to "Find Friends", users_path %></li>
+          <li class="">
+            <a ole="button" data-toggle="collapse" data-parent="#accordion" data-target="#workouts" href="#armExercises" aria-expanded="true" aria-controls="collapseOne">
+              <i class="fa fa-user fa-lg"></i> <%= current_user.name %> <b class="caret"></b>
+            </a>
+            <ul aria-expanded="false" class="nav nav-second-level collapse" id="workouts" style="height: 0px;">
+              <li>
+                <%= link_to '<i class="fa fa-fw fa-user"></i> My Profile'.html_safe, users_profile_path %>
+              </li>
+              <li>
+                <%= link_to '<i class="fa fa-folder-open"></i> My Workouts'.html_safe, my_workouts_path %>
+              </li>
+              <li>
+                <%= link_to '<i class="fa fa-bookmark"></i> Followed Workouts'.html_safe, followed_path%>
+              </li>
+              <li>
+                <%= link_to '<i class="fa fa-plus-square"></i> New Workout'.html_safe, new_workout_path%>
+              </li>
+              <li class="divider"></li>
+            </ul>
+            <!-- /.nav-second-level -->
+          </li>
+          <li><%= link_to '<i class="fa fa-home fa-lg"></i> Home'.html_safe, users_home_path %></li>
+          <li><%= link_to '<i class="fa fa-list fa-lg"></i> All Workouts'.html_safe, workouts_path %></li>
+          <li><%= link_to '<i class="fa fa-map fa-lg"></i> Find Gyms'.html_safe, gyms_path %></li>
+          <li><%= link_to '<i class="fa fa-search fa-lg"></i> Find Friends'.html_safe, users_path %></li>
+          <li><%= link_to '<i class="fa fa-fw fa-power-off fa-lg"></i> Log Out'.html_safe, sign_out_path, :method => :delete %></li>
         </ul>
       </div>
       <!-- /.sidebar-collapse -->
