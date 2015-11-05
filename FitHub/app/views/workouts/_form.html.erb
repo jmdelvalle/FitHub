@@ -55,7 +55,7 @@
               </div>
               <!-- Finished -->
               <div class="panel-collapse collapse" id="armExercises" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
+                <div class="panel-body" style="height: 600px; overflow-y: scroll;">
 
                     <% Exercise.where("muscle_group = 'Arms'").each do |element| %>
                       <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name%></label><br>
@@ -84,7 +84,7 @@
               </div>
               <!-- Finished -->
               <div class="panel-collapse collapse" id="legExercises" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">
+                <div class="panel-body" style="height: 600px; overflow-y: scroll;">
 
                      <% Exercise.where("muscle_group = 'Legs'").each do |element| %>
                        <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
@@ -113,7 +113,7 @@
               </div>
               <!-- Finished -->
               <div class="panel-collapse collapse" id="backExercises" role="tabpanel" aria-labelledby="headingThree">
-                <div class="panel-body">
+                <div class="panel-body" style="height: 600px; overflow-y: scroll;">
 
                       <% Exercise.where("muscle_group = 'Back'").each do |element| %>
                         <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
@@ -142,7 +142,7 @@
               </div>
               <!-- Finished -->
               <div class="panel-collapse collapse" id="chestExercises" role="tabpanel" aria-labelledby="headingFour">
-                <div class="panel-body">
+                <div class="panel-body" style="height: 600px; overflow-y: scroll;">
 
                         <% Exercise.where("muscle_group = 'Chest'").each do |element| %>
                           <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
@@ -171,7 +171,7 @@
               </div>
               <!-- Finished -->
               <div class="panel-collapse collapse" id="shoulderExercises" role="tabpanel" aria-labelledby="headingFive">
-                <div class="panel-body">
+                <div class="panel-body" style="height: 600px; overflow-y: scroll;">
 
                         <% Exercise.where("muscle_group = 'Shoulders'").each do |element| %>
                           <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
@@ -200,12 +200,13 @@
               </div>
 
               <div class="panel-collapse collapse" id="absExercises" role="tabpanel" aria-labelledby="headingSix">
-                <div class="panel-body">
+                <div class="panel-body" style="height: 600px; overflow-y: scroll;">
 
                   <% Exercise.where("muscle_group = 'Abs'").each do |element| %>
                     <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
                     <script type="text/javascript">
                       $("#workout_exercise_ids_<%= element.id %>").click(function() {
+               
                         var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
                         if ($(this).is(':checked')) {
                           $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
@@ -214,7 +215,15 @@
                         }
                       })
                     </script>
-
+                       <script type="text/javascript">
+                      var headings = $('#accordion .panel-heading');
+                      headings.click(function(){
+                         var $this = $(this);
+                         setTimeout(function(){
+                          $('html,body').scrollTop($this.offset().top);
+                        },500);
+                      });
+                  </script>
                   <% end %>
                 </div>
               </div>
