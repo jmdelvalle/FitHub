@@ -27,3 +27,31 @@
 .fa {
 	color: #ffffff;
 }
+.panel-body #accordion-arms{    
+    height: 600px;
+    overflow-y: scroll;
+  }
+.panel-body #accordion-legs{    
+    height: 600px;
+    overflow-y: scroll;
+  }
+
+.panel-body #accordion-back{    
+    height: 600px;
+    overflow-y: scroll;
+  }
+
+.panel-body #accordion-chest{    
+    height: 600px;
+    overflow-y: scroll;
+  }
+
+.panel-body #accordion-shoulders{    
+    height: 600px;
+    overflow-y: scroll;
+  }
+
+.panel-body #accordion-abdominals{    
+    height: 600px;
+    overflow-y: scroll;
+  }
