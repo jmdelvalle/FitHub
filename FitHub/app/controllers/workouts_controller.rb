@@ -20,7 +20,7 @@ class WorkoutsController < ApplicationController
   end
 
   def my_workouts
-    @my_workouts = current_user.workouts + Workout.where(:user_id => current_user.id)
+    @my_workouts = current_user.workouts
   end
 
   def followed
@@ -30,7 +30,9 @@ class WorkoutsController < ApplicationController
       @followed_workout_ids << x.workout_id
     end
     @followed_workout_ids.each do |id|
-      @followed_workouts << Workout.find(id)
+      if Workout.find(id).creator != current_user.name
+        @followed_workouts << Workout.find(id)
+      end
     end
 
   end
