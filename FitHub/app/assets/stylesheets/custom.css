@@ -1,4 +1,34 @@
-.myContainer {
-  margin-left: 20px;
-  margin-right: 25px;
+.page-wrapper {
+  padding-top: 70px !important;
+}
+
+a {
+  color: #fff;
+}
+
+.sidebar ul li a:hover {
+    background-color: #3284c5;
+    color: #eee;
+}
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+  background-color: #3284c5;
+  color: #eee;
+}
+
+.navbar-top-links li a:hover {
+  background-color: #3284c5;
+  color: #eee;
+}
+
+.dropdown-menu .fa {
+  color: black;
+}
+
+#page-body {
+  padding-top: 20px;
+}
+
+.btn-outline:hover {
+  background-color: #3c9ce7;
 }
