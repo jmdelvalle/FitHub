@@ -3,7 +3,17 @@
 
     <div class="row">
         <div class="col-md-3">
+          <center>
+            <h3>This is a Workout for </h3>
+          </center>
+            <% @workout.weekdays.each do |day| %>
+              <div class="well well-sm">
+                <center>
+                  <h2><%= day.name %>s</h2>
+                </center>
+              </div>
 
+            <% end %>
         </div>
 
 
@@ -14,7 +24,10 @@
               <h3>Workout: <%= @workout.name %></h3>
               <h3>Category: <%= @workout.category %></h3>
               <h3>Description of Workout: <%= @workout.description %></h3>
-              <h3>Challenges: <%= @workout.challenges %></h3>
+              <h3>Challenges: <%= @workout.challenges %></h3><br>
+
+
+
             </div>
           </div>
           <% @workout.exercises.each do |e| %>

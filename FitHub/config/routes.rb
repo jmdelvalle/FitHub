@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'create/destroy'
+
   resources :likes
 
   resources :friendships
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
   resources :users_workouts
   resources :users_gyms
   resources :workouts_exercises
+  resources :weekdays
+  resources :weekdays_workouts
   get 'my_workouts', to: 'workouts#my_workouts'
   get 'followed', to: 'workouts#followed'
   post 'results', to: 'gyms#results'

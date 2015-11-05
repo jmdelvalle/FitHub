@@ -35,7 +35,14 @@
           <%= f.text_area :description %>
         </div>
         <div class="field">
-          <h3><%= f.label :days %><br></h3>
+          <h3><%= f.label "How Often Should This Workout Be Performed?" %><br></h3>
+          <input value="Monday" type="checkbox" name="days[]" id="workout_days_monday"> Monday
+          <input value="Tuesday" type="checkbox" name="days[]" id="workout_days_tuesday"> Tuesday
+          <input value="Wednesday" type="checkbox" name="days[]" id="workout_days_wednesday"> Wednesday
+          <input value="Thursday" type="checkbox" name="days[]" id="workout_days_thursday"> Thursday
+          <input value="Friday" type="checkbox" name="days[]" id="workout_days_friday"> Friday
+          <input value="Saturday" type="checkbox" name="days[]" id="workout_days_saturday"> Saturday
+          <input value="Sunday" type="checkbox" name="days[]" id="workout_days_sunday"> Sunday
         </div>
         <div class="field">
           <h3><%= f.label :challenges %><br></h3>

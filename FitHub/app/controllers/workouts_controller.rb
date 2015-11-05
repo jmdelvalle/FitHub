@@ -58,23 +58,23 @@ class WorkoutsController < ApplicationController
   def create
 
     @workout = Workout.new(workout_params)
-
-
     respond_to do |format|
 
       if @workout.save
-
+        if params[:days]
+          params[:days].each do |day|
+            WeekdaysWorkout.create(:weekday_id => Weekday.find_by_name(day).id, :workout_id => @workout.id)
+          end
+        end
+        if params[:details]
         #wire up the sets and reps for this particular workout
-        params[:details].each do |data|
-          SetsAndRep.create(:workout_id => @workout.id, :exercise_id => data[:ex_num].to_i, :sets => data[:sets].to_i, :reps => data[:reps].to_i)
+          params[:details].each do |data|
+            SetsAndRep.create(:workout_id => @workout.id, :exercise_id => data[:ex_num].to_i, :sets => data[:sets].to_i, :reps => data[:reps].to_i)
+          end
         end
         # create the realationship between the workout and the user
         UsersWorkout.create(:user_id => current_user.id, :workout_id => @workout.id)
-        # creating a relationship between each exercise and the workout that it is a part of
-        # params[:workout][:exercise_ids].each do |id_num|
-        #   binding.pry
-        #   WorkoutsExercise.create(:workout_id => @workout.id, :exercise_id => id_num)
-        # end
+
 
         format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
         format.json { render :show, status: :created, location: @workout }
@@ -122,7 +122,7 @@ class WorkoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
-      params.require(:workout).permit(:name, :likes, :creator, :category, :user_id, :description, :challenges, :days => [], :exercise_ids => [])
+      params.require(:workout).permit(:name, :likes, :creator, :category, :user_id, :description, :challenges, :exercise_ids => [])
     end
 
 end

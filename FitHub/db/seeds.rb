@@ -8,7 +8,7 @@
 
 
 JSON.load(File.read("#{Dir.pwd}/lib/assets/workout.json")).each do |exercise|
-	
+
 	exercise.each_pair do |name, details|
 		case
 			when details["Main Muscle Worked"] == " Middle Back" || details["Main Muscle Worked"] == " Lower Back" || details["Main Muscle Worked"] == " Lats" || details["Main Muscle Worked"] == " Traps" || details["Main Muscle Worked"] == " Neck"
@@ -23,7 +23,14 @@ JSON.load(File.read("#{Dir.pwd}/lib/assets/workout.json")).each do |exercise|
 				group = "Shoulders"
 			when details["Main Muscle Worked"] == " Abdominals"
 				group = "Abs"
-			end
-			Exercise.create(:name => name, :specific_muscles_worked => details["Main Muscle Worked"], :guide => details["guide"].join, :muscle_group => group, :pic_left => details["pic_left"], :pic_right => details["pic_right"])
 		end
+			Exercise.create(:name => name, :specific_muscles_worked => details["Main Muscle Worked"], :guide => details["guide"].join, :muscle_group => group, :pic_left => details["pic_left"], :pic_right => details["pic_right"])
+	end
 end
+Weekday.create(:name => "Monday")
+Weekday.create(:name => "Tuesday")
+Weekday.create(:name => "Wednesday")
+Weekday.create(:name => "Thursday")
+Weekday.create(:name => "Friday")
+Weekday.create(:name => "Saturday")
+Weekday.create(:name => "Sunday")
