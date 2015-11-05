@@ -3,7 +3,7 @@
 }
 
 a {
-  color: #eee;
+  color: #fff;
 }
 
 .sidebar ul li a:hover {
@@ -19,4 +19,16 @@ a {
 .navbar-top-links li a:hover {
   background-color: #3284c5;
   color: #eee;
+}
+
+.dropdown-menu .fa {
+  color: black;
+}
+
+#page-body {
+  padding-top: 20px;
+}
+
+.btn-outline:hover {
+  background-color: #3c9ce7;
 }
