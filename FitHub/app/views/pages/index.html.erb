@@ -1,8 +1,51 @@
-<div id="centered_div">
-  <h1>Welcome To FitHub</h1>
-  <% if current_user %>
-    <h2>Signed in as: <%= current_user.name %></h2>
-  <% else %>
-    <h2><%= link_to "Login With Facebook", "auth/facebook" %></h2>
-  <% end %>
+<div align="center">
+<div class="hero">
+
+<div class="about">
+<h1>Welcome to Fithub</h1>
+
+<h3>About</h3> 
+<h4 align="left"> We believe that everyone is able to reach any goal. We also understand that a supportive community is key to success. We've set out to build that community. Where you can share, grow, learn and develop into not only healtier people but better people. This a new way of thinking Fit, Join Us.
+</h4><br>
+<% if current_user %>
+<h4>Signed in as: <%= current_user.name %></h4>
+<% else %>
+<h3><%= link_to "Login With Facebook", "auth/facebook" %></h3>
+<% end %><br>
+</div>
+</div>
+</div>
+
+<div align="center">
+<h3 id="fitblue" align="center">Team</h3><br>
+<div class="col-md-4" id="fitbackground">
+<h4>Jeremy Delvalle</h4>
+<img src="http://gravatar.com/avatar/b42041ec5c1981df552d9a8987303fec" class="img-circle">
+<br><br>
+<a href="http://github.com/jmdelvalle"><i class="fa fa-github fa-2x"></i></a>
+<a href="http://www.linkedin.com/in/jeremydelvalle"><i class="fa fa-linkedin-square fa-2x"></i></a>        	
+<a href="http://twitter.com/jeremymdelvalle"><i class="fa fa-twitter fa-2x"></i></a>        	
+<a href="http://www.facebook.com/jeremy.delvalle.79"><i class="fa fa-facebook-square fa-2x"></i></a>
+</div>
+
+<div class="col-md-4" id="fitbackground">
+<h4>Brian Mesa</h4>
+<img src="http://s.gravatar.com/avatar/fdc13978576b8be9a928d7cfe7bc5dfd?s=80" class="img-circle">
+<br><br>
+<a href="https://github.com/Bmesa620"><i class="fa fa-github fa-2x"></i></a>
+<a href="http://www.linkedin.com/pub/brian-mesa/b2/b8a/b5a"><i class="fa fa-linkedin-square fa-2x"></i></a>
+<a href="http://twitter.com/bmes62"><i class="fa fa-twitter fa-2x"></i></a>
+<a href="http://www.facebook.com/brian.mesa.370"><i class="fa fa-facebook-square fa-2x"></i></a>
+</div>
+
+<div class="col-md-4" id="fitbackground">
+<h4>Henry Paulino</h4>
+<img src="https://en.gravatar.com/userimage/88406672/98a8edd09a03576f3aaafbb0639453c0" class="img-circle">
+<br><br>
+<a href="http://github.com/corasan"><i class="fa fa-github fa-2x"></i></a>
+<a href="http://www.linkedin.com/in/henrypl95"><i class="fa fa-linkedin-square fa-2x"></i></a>
+<a href="http://twitter.com/henrypl95"><i class="fa fa-twitter fa-2x"></i></a>
+<a href="http://www.facebook.com/henrypaulinol"><i class="fa fa-facebook-square fa-2x"></i></a>
+</div>
+
 </div>
