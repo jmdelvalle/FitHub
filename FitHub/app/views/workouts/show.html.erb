@@ -18,7 +18,7 @@
 
 
         <div class="col-md-6">
-          <div class="row">
+          <div class="row"><br><br><br>
             <div class="well well-sm">
               <h3>Created By: <%= @workout.creator %></h3>
               <h3>Workout: <%= @workout.name %></h3>
@@ -28,7 +28,7 @@
 
 
 
-            </div>
+
           </div>
           <% @workout.exercises.each do |e| %>
 
@@ -83,7 +83,7 @@
 
 <% if @workout.user_id == current_user.id %>
   <center>
-    <h3><%= link_to 'Edit', edit_workout_path(@workout) %> | <%= link_to 'Back', my_workouts_path %> | <%= link_to 'Destroy', @workout, method: :delete, data: { confirm: 'Are you sure?' } %></h3>
+    <h3><%= link_to 'Edit', edit_workout_path(@workout), :class => "btn btn-primary" %> | <%= link_to 'Back', my_workouts_path,:class => "btn btn-primary" %></h3>
   </center>
 <% else %>
 <center>

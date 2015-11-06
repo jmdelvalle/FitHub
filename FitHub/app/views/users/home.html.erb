@@ -26,9 +26,7 @@
       <div class="well well-sm">
         <h2>The Latest Addition to My Workouts</h2><br>
         <% @recent_workout = current_user.workouts.last %>
-        <% creator_id = @recent_workout.user_id %>
-        <% creator = User.find_by_id(creator_id).name %>
-        <h4>Created By: <%= creator%></h4>
+        <h4>Created By: <%= @recent_workout.creator%></h4>
         <h4>Name Of The Workout: <%= @recent_workout.name %></h4>
         <h4>Category: <%= @recent_workout.category %></h4>
         <h4>Description: <%= @recent_workout.description %></h4>
