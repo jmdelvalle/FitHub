@@ -63,12 +63,22 @@ li {
 
 #app-nav {
   border-color: #368ccf;
+  background-color: rgba(60, 156, 231, 1);
 }
 
 #facebook-btn {
   background-color: #3b5998;
+  padding: 10px 13px;
+  border-radius: 5px;
 }
 
-#facebook-btn:hover {
+#facebook-btn:hover, #facebook-btn:focus {
   color: white;
+  background-color: #2f4779;
+}
+.btn-social>:first-child {
+  border-right: 0px;
+}
+.fa-facebook {
+  margin-top: 4px;
 }
