@@ -67,13 +67,15 @@
 <% end %>
 
 <center>
-  <%= form_tag workouts_path, :method => 'get' do %>
-  <p>
-    <i>Search by Category, Workout Name, or Creator</i><br>
-    <%= text_field_tag :search, params[:search], class: "form-control" %>
-    <%= submit_tag "Search", :name => nil, class:"btn btn-primary btn-sm" %>
-  </p>
-  <% end %>
+  <form class="form-inline">
+    <%= form_tag workouts_path, :method => 'get' do %>
+    <p>
+      <i>Search by Category, Workout Name, or Creator</i><br>
+      <%= text_field_tag :search, params[:search], class: "form-control" %>
+      <%= submit_tag "Search", :name => nil, class:"btn btn-primary btn-md" %>
+    </p>
+    <% end %>
+  </form>
 </center>
 <div class="container-fluid">
   <div align="center">

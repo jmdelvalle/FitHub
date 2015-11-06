@@ -15,30 +15,42 @@
 <% @workout_count %>
 <% end %>
 <% if @workout_count.count == 1 %>
-<center><h1>You have created <%= @workout_count.count %> workout so far!</h1></center><br>
+<center>
+  <h1>You have created
+    <%= @workout_count.count %>
+    workout so far!</h1>
+</center><br>
 <% else %>
-<center><h1>You have created <%= @workout_count.count %> workouts so far!</h1></center><br>
+<center>
+  <h1>You have created
+    <%= @workout_count.count %>
+    workouts so far!</h1>
+</center><br>
 <% end %>
 <% @my_workouts.each do |workout| %>
 <% if workout.user_id == current_user.id %>
-  <div class="row">
-      <div class="col-md-6">
-        <div class="panel panel-default">
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6" align="center">
+    <div class="panel panel-default">
 
-          <div class="panel-heading">
-            <%= workout.name %>
-          </div>
-          <div class="panel-body">
-            <h3>Created By: </h3><h4><%= workout.creator %></h4>
-            <h3>Category: </h3><h4><%= workout.category %></h4>
-            <h3>Description of Workout: </h3><h4><%= workout.description %></h4>
-            <h3>Challenges: </h3><h4><%= workout.challenges %></h4>
-            <h4><%= link_to '<i class="fa fa-trash"></i> Show'.html_safe, workout, class: "btn btn-primary" %></h4>
-            <h4><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></h4>
-          </div>
-          <% end %>
-
-        </div>
+      <div align="center" class="panel-heading">
+        <h3><%= workout.name %></h3>
       </div>
+      <div align="center" class="panel-body">
+        <h3>Created By: <%= workout.creator %></h3>
+        <h3>Category: <%= workout.category %></h3>
+        <h3>Description of Workout: <%= workout.description %></h3>
+        <h3>Challenges: <%= workout.challenges %></h3><br>
+        <p>
+          <%= link_to 'Go to Workout', workout, class: "btn btn-primary" %>
+          <%= link_to '<i class="fa fa-trash"></i> Destroy'.html_safe, workout, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        </p>
+      </div>
+      <div class="col-md-3"></div>
+
+    </div>
+    <% end %>
   </div>
+</div>
 <% end %>
