@@ -22,24 +22,24 @@
 <% @my_workouts.each do |workout| %>
 <% if workout.user_id == current_user.id %>
   <div class="row">
-    <div align="center">
-      <div class="col-md-3"></div>
       <div class="col-md-6">
-        <div class="well well-sm">
+        <div class="panel panel-default">
 
-          <h3>Created By: </h3><h4><%= workout.creator %></h4>
-          <h3>Workout: </h3><h4><%= workout.name %></h4>
-          <h3>Category: </h3><h4><%= workout.category %></h4>
-          <h3>Description of Workout: </h3><h4><%= workout.description %></h4>
-          <h3>Challenges: </h3><h4><%= workout.challenges %></h4>
-          <h4><%= link_to 'Show', workout %></h4>
+          <div class="panel-heading">
+            <%= workout.name %>
+          </div>
+          <div class="panel-body">
+            <h3>Created By: </h3><h4><%= workout.creator %></h4>
+            <h3>Category: </h3><h4><%= workout.category %></h4>
+            <h3>Description of Workout: </h3><h4><%= workout.description %></h4>
+            <h3>Challenges: </h3><h4><%= workout.challenges %></h4>
+            <h4><%= link_to 'Show', workout %></h4>
 
-          <h4><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></h4>
+            <h4><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></h4>
+          </div>
           <% end %>
 
         </div>
       </div>
-      <div class="col-md-3"></div>
-    </div>
   </div>
 <% end %>

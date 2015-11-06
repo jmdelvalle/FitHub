@@ -2,7 +2,8 @@
 
 <div align="center">
   <div class="container-fluid">
-    <h1>Hey <%= current_user.name %>, Welcome to FitHub!</h1>
+    <h1>Hey
+      <%= current_user.name %>, Welcome to FitHub!</h1>
     <h2>Today is<%= Time.now.strftime("%B %e, %Y")%></h2>
     <div class="col-md-2"></div>
     <div class="col-md-8">
@@ -18,12 +19,11 @@
 </div>
 
 <% else %>
-
 <div align="center">
   <div class="container-fluid">
-    <div class="well well-sm">
       <h1>Hey
         <%= current_user.name %>, it's nice to have you back on FitHub!</h1><br>
+    <div class="well well-sm">
       <h2>Today is
         <%= Time.now.strftime("%B %e, %Y")%></h2>
       <h2>What Workout Will You Conquer?</h2>
@@ -53,8 +53,59 @@
       <% end %>
       <h3><%= gym.address %></h3>
       <% end %>
-    </div>
-  </div>
-</div>
+      <div align="center">
+        <div class="container-fluid">
+          <div class="well well-sm">
+            <h1>Hey
+              <%= current_user.name %>, it's nice to have you back on FitHub!</h1><br>
+            <h2>Today is
+              <%= Time.now.strftime("%B %e, %Y")%></h2>
+            <h2>What Workout Will You Conquer?</h2>
+          </div>
+          <div class="well well-sm">
+            <h2>The Latest Addition to My Workouts</h2><br>
+            <% @recent_workout = current_user.workouts.last %>
+            <% creator_id = @recent_workout.user_id %>
+            <% creator = User.find_by_id(creator_id).name %>
+            <h4>Created By:
+              <%= creator%></h4>
+            <h4>Name Of The Workout:
+              <%= @recent_workout.name %></h4>
+            <h4>Category:
+              <%= @recent_workout.category %></h4>
+            <h4>Description:
+              <%= @recent_workout.description %></h4>
+            <h4>Workout Challenges:
+              <%= @recent_workout.challenges %></h4>
+            <h3><%= link_to "Check Out This Workout!", @recent_workout %></h3>
+          </div>
 
-<% end %>
+          <div class="well well-sm">
+            <h2>
+              For
+              <%= Time.now.strftime("%A")%>, these are the workouts you have scheduled
+            </h2>
+
+            <% current_user.workouts.each do |workout| %>
+            <% workout.weekdays.each do |day| %>
+            <% if day.name == Time.now.strftime("%A") %>
+            <%= link_to "#{workout.name}", workout, class: 'btn btn-primary' %>
+            <% end %>
+            <% end %>
+            <% end %>
+          </div>
+
+          <div class="well well-sm">
+            <h2>These are the gyms you have joined!</h2>
+            <% current_user.gyms.each do |gym| %>
+            <%= link_to(gym) do %>
+            <h3><%= gym.name %></h3>
+            <% end %>
+            <h3><%= gym.address %></h3>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
