@@ -44,7 +44,7 @@ body {
 }
 .navbar-default {
   background-color: rgba(60, 156, 231, 0.9);
-  /*border-color: rgba(60, 156, 231, 0.3);*/
+  border-color: rgba(60, 156, 231, 0.3);
 }
 .navbar-default .navbar-brand {
   color: #ffffff;
@@ -148,10 +148,13 @@ textarea {
 }*/
 
 #fitblue {
-  color: #368CD0;
+  color: #DDCCEE;
 }
 #fitbackground {
   padding-top: 20px;
+ }
+ #fitbackground{
+  height: 100%;
   background-color: #368CD0;
   color: #ffffff;
 }

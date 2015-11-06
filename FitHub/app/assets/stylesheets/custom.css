@@ -61,4 +61,14 @@ li {
   border-radius: 0px;
 }
 
-.navbar-default 
+#app-nav {
+  border-color: #368ccf;
+}
+
+#facebook-btn {
+  background-color: #3b5998;
+}
+
+#facebook-btn:hover {
+  color: white;
+}
