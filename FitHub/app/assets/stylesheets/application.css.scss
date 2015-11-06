@@ -20,9 +20,9 @@
  */
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
-body {
-  padding-top: 70px;
-  padding-bottom: 30px;
+html,body {
+  height: 100%;
+  padding-top: 20px;
 }
 
 .body .well {

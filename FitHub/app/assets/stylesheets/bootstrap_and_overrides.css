@@ -6,10 +6,43 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-  body { background: #d1d1d1 !important;}
-  .navbar-default {
+  /*body { background: #d1d1d1 !important;}*/
+
+
+  .lead_title {
+    font-family: Oswald, Helvetica, sans-serif;
+    font-size:80px;
+    color:#DDCCEE;
+  }
+
+  .container-full {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    min-height:auto;
+    background-color:#110022;
+    color:#eee;
+    overflow:hidden;
+  }
+  .container-full a {
+    color: rgb(255, 255, 255);;
+    text-decoration:none;
+  }
+
+  .btn-block {
     background-color: #3c9ce7;
-    border-color: #368CD0;
+    max-width:25%;
+    margin:auto;
+  }
+
+  .v-center {
+    margin-top:7%;
+  }
+
+  .navbar-default {
+    background-color: rgba(60, 156, 231, 0.9);
+    border-color: rgba(60, 156, 231, 0.3);
   }
   .navbar-default .navbar-brand {
     color: #ffffff;
@@ -51,7 +84,7 @@
     color: #ffffff;
   }
   .navbar-default .navbar-link:hover {
-    color: #696d6a;
+    color: rgb(0, 0, 0);
   }
 
   @media (max-width: 767px) {
@@ -92,18 +125,17 @@ textarea{
 }
 
 .hero{
-    color: #3c9ce7;
-    z-index: 100;
-    position: relative;
-    height: 500px;
-    background-position: 50% 50%;
-    border: 2px solid;
-    border-color: #368CD0;
-    background-size: cover;
-  background-image: url("http://www.kinkajou.net/wallpaper/wallpaper/wallpaper-for-bodybuilders-weightlifters-motivatio-wallpaper-weightlifting-wallpapers-borders-hd-for-phone-chicago-abyss-removal-maker-magazine-wide-calculator.jpg");
+  opacity: 0.85;
+  z-index: 100;
+  position: relative;
+  height: 500px;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6) ), url('http://www.kinkajou.net/wallpaper/wallpaper/wallpaper-for-bodybuilders-weightlifters-motivatio-wallpaper-weightlifting-wallpapers-borders-hd-for-phone-chicago-abyss-removal-maker-magazine-wide-calculator.jpg');
+
 }
 
-.hero .about{
+/*.hero .about{
       font-family: 'Open Sans', sans-serif;
   padding: 20px;
     border: 1px solid;
@@ -117,7 +149,7 @@ textarea{
     position: relative;
     font-size: 1rem;
     text-align: center;
-}
+}*/
  #fitblue{
   color: #368CD0;
  }
