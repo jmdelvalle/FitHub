@@ -2,16 +2,15 @@
 
 <div align="center">
   <div class="container-fluid">
-    <h1>Hey
-      <%= current_user.name %>, Welcome to FitHub!</h1>
-    <h2>Today is<%= Time.now.strftime("%B %e, %Y")%></h2>
+    <h1>Hey <%= current_user.name %>, Welcome to FitHub!</h1>
+    <h3>Today is <%= Time.now.strftime("%B %e, %Y")%></h3><br>
     <div class="col-md-2"></div>
     <div class="col-md-8">
       <div class="panel panel-default">
         <div class="panel-body">
           <h2>What Workout Will You Conquer?</h2>
-          <h2>Start by creating your first workout!</h2><br>
-          <%= link_to "Click Here To Create A Workout!", new_workout_path, class: "btn btn-outline btn-primary btn-lg btn-block" %>
+          <h3>Start by creating your first workout!</h3><br>
+          <%= link_to "Create A Workout", new_workout_path, class: "btn btn-outline btn-primary btn-lg btn-block" %>
         </div>
       </div>
     </div>

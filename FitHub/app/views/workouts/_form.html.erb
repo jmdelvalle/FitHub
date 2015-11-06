@@ -1,234 +1,276 @@
 <%= form_for(@workout) do |f| %>
-  <% if @workout.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
-      <ul>
-      <% @workout.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if @workout.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@workout.errors.count, "error") %>
+    prohibited this workout from being saved:</h2>
+  <ul>
+    <% @workout.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
 <div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-md-6">
-    <div class="well well-sm">
-      <div align="center">
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.hidden_field :creator, :value => current_user.name %>
-        <div class="field">
-          <h3><%= f.label :name %><br></h3>
-          <%= f.text_field :name %>
-        </div>
-        <div class="field">
-          <h3><%= f.label :category %><br></h3>
-          <%= radio_button("workout", "category", "Bodybuilding") %> Bodybuilding <br>
-          <%= radio_button("workout", "category", "Strength") %> Strength <br>
-          <%= radio_button("workout", "category", "High Intensity Interval Training") %> High Intensity Interval Training <br>
-          <%= radio_button("workout", "category", "Upper Body") %> Upper Body <br>
-          <%= radio_button("workout", "category", "Lower Body") %> Lower Body <br>
-          <%= radio_button("workout", "category", "Core") %> Core <br>
-        </div>
-        <div class="field">
-          <h3><%= f.label :description %><br></h3>
-          <%= f.text_area :description %>
-        </div>
-        <div class="field">
-          <h3><%= f.label "How Often Should This Workout Be Performed?" %><br></h3>
-          <input value="Monday" type="checkbox" name="days[]" id="workout_days_monday"> <strong>Monday</strong>
-          <input value="Tuesday" type="checkbox" name="days[]" id="workout_days_tuesday"> <strong>Tuesday</strong>
-          <input value="Wednesday" type="checkbox" name="days[]" id="workout_days_wednesday"> <strong>Wednesday</strong>
-          <input value="Thursday" type="checkbox" name="days[]" id="workout_days_thursday"> <strong>Thursday</strong>
-          <input value="Friday" type="checkbox" name="days[]" id="workout_days_friday"> <strong>Friday</strong>
-          <input value="Saturday" type="checkbox" name="days[]" id="workout_days_saturday"> <strong>Saturday</strong>
-          <input value="Sunday" type="checkbox" name="days[]" id="workout_days_sunday"> <strong>Sunday</strong>
-        </div>
-        <div class="field">
-          <h3><%= f.label :challenges %><br></h3>
-          <%= f.text_area :challenges %>
-        </div><br>
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-md-6">
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.hidden_field :creator, :value => current_user.name %>
+          <div class="form-group">
+            <h3><%= f.label :name %></h3>
+            <div id="name-input"><%= f.text_field :name, class: "form-control"%></div>
+          </div>
+          <div class="form-group">
+            <h3><%= f.label :category %></h3>
+            <%= radio_button("workout", "category", "Bodybuilding") %>
+            Bodybuilding
+            <br>
+            <%= radio_button("workout", "category", "Strength") %>
+            Strength
+            <br>
+            <%= radio_button("workout", "category", "High Intensity Interval Training") %>
+            High Intensity Interval Training
+            <br>
+            <%= radio_button("workout", "category", "Upper Body") %>
+            Upper Body
+            <br>
+            <%= radio_button("workout", "category", "Lower Body") %>
+            Lower Body
+            <br>
+            <%= radio_button("workout", "category", "Core") %>
+            Core
+            <br><br>
+          </div>
+          <div align="center" class="form-group">
+            <h3><%= f.label :description %><br></h3>
+            <%= f.text_area :description, class: "form-control" %>
+          </div>
 
+          <div class="field">
+            <h3><%= f.label "How Often Should This Workout Be Performed?" %></h3><br>
+            <input id="workout_days_monday" name="days[]" type="checkbox" value="Monday">
+            <strong>Monday</strong>
+            <input id="workout_days_tuesday" name="days[]" type="checkbox" value="Tuesday">
+            <strong>Tuesday</strong>
+            <input id="workout_days_wednesday" name="days[]" type="checkbox" value="Wednesday">
+            <strong>Wednesday</strong>
+            <input id="workout_days_thursday" name="days[]" type="checkbox" value="Thursday">
+            <strong>Thursday</strong>
+            <input id="workout_days_friday" name="days[]" type="checkbox" value="Friday">
+            <strong>Friday</strong>
+            <input id="workout_days_saturday" name="days[]" type="checkbox" value="Saturday">
+            <strong>Saturday</strong>
+            <input id="workout_days_sunday" name="days[]" type="checkbox" value="Sunday">
+            <strong>Sunday</strong>
+          </div>
+          <br>
+          <div class="form-group" align="center">
+            <h3><%= f.label :challenges %></h3>
+            <%= f.text_area :challenges, class: "form-control" %>
+          </div><br>
+        </div>
+        <div class="col-md-6">
           <h3>Exercise Categories</h3>
 
-          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
 
             <!-- This is the accordion group for Arms -->
             <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="heading_one">
+              <div class="panel-heading" id="heading_one" role="tab">
                 <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#armExercises" href="#armExercises" aria-expanded="true" aria-controls="collapseOne">Arm Exercises</a>
+                  <a aria-controls="collapseOne" aria-expanded="true" data-parent="#accordion" data-target="#armExercises" data-toggle="collapse" href="#armExercises" role="button">Arm Exercises</a>
                 </h4>
               </div>
               <!-- Finished -->
-              <div class="panel-collapse collapse" id="armExercises" role="tabpanel" aria-labelledby="headingOne">
+              <div aria-labelledby="headingOne" class="panel-collapse collapse" id="armExercises" role="tabpanel">
                 <div class="panel-body" style="height: 600px; overflow-y: scroll;">
 
-                    <% Exercise.where("muscle_group = 'Arms'").each do |element| %>
-                      <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name%></label><br>
-                      <script type="text/javascript">
-                        $("#workout_exercise_ids_<%= element.id %>").click(function() {
-                          var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="hidden" name="details[][ex_num]" value ="<%=element.id %>"><input type="text" name="details[][sets]" id="details_sets" > Number of Reps: <input type="text" name="details[][reps]" id="details_reps" ></div>'
-                          if ($(this).is(':checked')) {
-                            $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
-                          } else {
-                            $(this).siblings('.sets_and_reps').remove('.sets_and_reps')
-                          }
-                        })
-                      </script>
+                  <% Exercise.where("muscle_group = 'Arms'").each do |element| %>
+                  <label for="workout_exercise_ids_<%= element.id %>" name="<%= element.id %>"><input id="workout_exercise_ids_<%= element.id %>" name="workout[exercise_ids][]" type="checkbox" value="<%= element.id %>">
+                    <%= element.name%></label><br>
+                  <script type="text/javascript">
+                    $("#workout_exercise_ids_<%= element.id %>")
+                      .click(function () {
+                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="hidden" name="details[][ex_num]" value ="<%=element.id %>"><input type="text" name="details[][sets]" id="details_sets" > Number of Reps: <input type="text" name="details[][reps]" id="details_reps" ></div>'
+                        if ($(this).is(':checked')) {
+                          $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
+                        } else {
+                          $(this).siblings('.sets_and_reps')
+                            .remove('.sets_and_reps')
+                        }
+                      })
+                  </script>
 
-                    <% end %>
+                  <% end %>
                 </div>
               </div>
             </div>
 
             <!-- This is the accordion group for Legs -->
             <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="heading_two">
+              <div class="panel-heading" id="heading_two" role="tab">
                 <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#legExercises" href="#legExercises" aria-expanded="true" aria-controls="collapseTwo">Leg Exercises</a>
+                  <a aria-controls="collapseTwo" aria-expanded="true" data-parent="#accordion" data-target="#legExercises" data-toggle="collapse" href="#legExercises" role="button">Leg Exercises</a>
                 </h4>
               </div>
               <!-- Finished -->
-              <div class="panel-collapse collapse" id="legExercises" role="tabpanel" aria-labelledby="headingTwo">
+              <div aria-labelledby="headingTwo" class="panel-collapse collapse" id="legExercises" role="tabpanel">
                 <div class="panel-body" style="height: 600px; overflow-y: scroll;">
 
-                     <% Exercise.where("muscle_group = 'Legs'").each do |element| %>
-                       <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
-                       <script type="text/javascript">
-                         $("#workout_exercise_ids_<%= element.id %>").click(function() {
-                           var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
-                           if ($(this).is(':checked')) {
-                             $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
-                           } else {
-                             $(this).siblings('.sets_and_reps').remove('.sets_and_reps')
-                           }
-                         })
-                       </script>
+                  <% Exercise.where("muscle_group = 'Legs'").each do |element| %>
+                  <label for="workout_exercise_ids_<%= element.id %>" name="<%= element.id %>"><input id="workout_exercise_ids_<%= element.id %>" name="workout[exercise_ids][]" type="checkbox" value="<%= element.id %>">
+                    <%= element.name %></label><br>
+                  <script type="text/javascript">
+                    $("#workout_exercise_ids_<%= element.id %>")
+                      .click(function () {
+                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                        if ($(this).is(':checked')) {
+                          $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
+                        } else {
+                          $(this).siblings('.sets_and_reps')
+                            .remove('.sets_and_reps')
+                        }
+                      })
+                  </script>
 
-                     <% end %>
+                  <% end %>
                 </div>
               </div>
             </div>
 
             <!-- This is the accordion group for Back -->
             <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="heading_three">
+              <div class="panel-heading" id="heading_three" role="tab">
                 <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#backExercises" href="#backExercises" aria-expanded="true" aria-controls="collapseThree">Back Exercises</a>
+                  <a aria-controls="collapseThree" aria-expanded="true" data-parent="#accordion" data-target="#backExercises" data-toggle="collapse" href="#backExercises" role="button">Back Exercises</a>
                 </h4>
               </div>
               <!-- Finished -->
-              <div class="panel-collapse collapse" id="backExercises" role="tabpanel" aria-labelledby="headingThree">
+              <div aria-labelledby="headingThree" class="panel-collapse collapse" id="backExercises" role="tabpanel">
                 <div class="panel-body" style="height: 600px; overflow-y: scroll;">
 
-                      <% Exercise.where("muscle_group = 'Back'").each do |element| %>
-                        <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
-                        <script type="text/javascript">
-                          $("#workout_exercise_ids_<%= element.id %>").click(function() {
-                            var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
-                            if ($(this).is(':checked')) {
-                              $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
-                            } else {
-                              $(this).siblings('.sets_and_reps').remove('.sets_and_reps')
-                            }
-                          })
-                        </script>
+                  <% Exercise.where("muscle_group = 'Back'").each do |element| %>
+                  <label for="workout_exercise_ids_<%= element.id %>" name="<%= element.id %>"><input id="workout_exercise_ids_<%= element.id %>" name="workout[exercise_ids][]" type="checkbox" value="<%= element.id %>">
+                    <%= element.name %></label><br>
+                  <script type="text/javascript">
+                    $("#workout_exercise_ids_<%= element.id %>")
+                      .click(function () {
+                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                        if ($(this).is(':checked')) {
+                          $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
+                        } else {
+                          $(this).siblings('.sets_and_reps')
+                            .remove('.sets_and_reps')
+                        }
+                      })
+                  </script>
 
-                      <% end %>
+                  <% end %>
                 </div>
               </div>
             </div>
 
             <!-- This is the accordion group for Chest -->
             <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="heading_four">
+              <div class="panel-heading" id="heading_four" role="tab">
                 <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#chestExercises" href="#chestExercises" aria-expanded="true" aria-controls="collapseFour">Chest Exercises</a>
+                  <a aria-controls="collapseFour" aria-expanded="true" data-parent="#accordion" data-target="#chestExercises" data-toggle="collapse" href="#chestExercises" role="button">Chest Exercises</a>
                 </h4>
               </div>
               <!-- Finished -->
-              <div class="panel-collapse collapse" id="chestExercises" role="tabpanel" aria-labelledby="headingFour">
+              <div aria-labelledby="headingFour" class="panel-collapse collapse" id="chestExercises" role="tabpanel">
                 <div class="panel-body" style="height: 600px; overflow-y: scroll;">
 
-                        <% Exercise.where("muscle_group = 'Chest'").each do |element| %>
-                          <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
-                          <script type="text/javascript">
-                            $("#workout_exercise_ids_<%= element.id %>").click(function() {
-                              var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
-                              if ($(this).is(':checked')) {
-                                $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
-                              } else {
-                                $(this).siblings('.sets_and_reps').remove('.sets_and_reps')
-                              }
-                            })
-                          </script>
+                  <% Exercise.where("muscle_group = 'Chest'").each do |element| %>
+                  <label for="workout_exercise_ids_<%= element.id %>" name="<%= element.id %>"><input id="workout_exercise_ids_<%= element.id %>" name="workout[exercise_ids][]" type="checkbox" value="<%= element.id %>">
+                    <%= element.name %></label><br>
+                  <script type="text/javascript">
+                    $("#workout_exercise_ids_<%= element.id %>")
+                      .click(function () {
+                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                        if ($(this).is(':checked')) {
+                          $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
+                        } else {
+                          $(this).siblings('.sets_and_reps')
+                            .remove('.sets_and_reps')
+                        }
+                      })
+                  </script>
 
-                        <% end %>
+                  <% end %>
                 </div>
               </div>
             </div>
 
             <!-- This is the accordion group for Shoulders -->
             <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="heading_five">
+              <div class="panel-heading" id="heading_five" role="tab">
                 <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#shoulderExercises" href="#shoulderExercises" aria-expanded="true" aria-controls="collapseFive">Shoulder Exercises</a>
+                  <a aria-controls="collapseFive" aria-expanded="true" data-parent="#accordion" data-target="#shoulderExercises" data-toggle="collapse" href="#shoulderExercises" role="button">Shoulder Exercises</a>
                 </h4>
               </div>
               <!-- Finished -->
-              <div class="panel-collapse collapse" id="shoulderExercises" role="tabpanel" aria-labelledby="headingFive">
+              <div aria-labelledby="headingFive" class="panel-collapse collapse" id="shoulderExercises" role="tabpanel">
                 <div class="panel-body" style="height: 600px; overflow-y: scroll;">
 
-                        <% Exercise.where("muscle_group = 'Shoulders'").each do |element| %>
-                          <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
-                          <script type="text/javascript">
-                            $("#workout_exercise_ids_<%= element.id %>").click(function() {
-                              var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
-                              if ($(this).is(':checked')) {
-                                $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
-                              } else {
-                                $(this).siblings('.sets_and_reps').remove('.sets_and_reps')
-                              }
-                            })
-                          </script>
+                  <% Exercise.where("muscle_group = 'Shoulders'").each do |element| %>
+                  <label for="workout_exercise_ids_<%= element.id %>" name="<%= element.id %>"><input id="workout_exercise_ids_<%= element.id %>" name="workout[exercise_ids][]" type="checkbox" value="<%= element.id %>">
+                    <%= element.name %></label><br>
+                  <script type="text/javascript">
+                    $("#workout_exercise_ids_<%= element.id %>")
+                      .click(function () {
+                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                        if ($(this).is(':checked')) {
+                          $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
+                        } else {
+                          $(this).siblings('.sets_and_reps')
+                            .remove('.sets_and_reps')
+                        }
+                      })
+                  </script>
 
-                        <% end %>
+                  <% end %>
                 </div>
               </div>
             </div>
 
             <!-- This is the accordion group for Abdominals -->
             <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="heading_six">
+              <div class="panel-heading" id="heading_six" role="tab">
                 <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#absExercises" href="#absExercises" aria-expanded="true" aria-controls="collapseSix">Abdominal Exercises</a>
+                  <a aria-controls="collapseSix" aria-expanded="true" data-parent="#accordion" data-target="#absExercises" data-toggle="collapse" href="#absExercises" role="button">Abdominal Exercises</a>
                 </h4>
               </div>
 
-              <div class="panel-collapse collapse" id="absExercises" role="tabpanel" aria-labelledby="headingSix">
+              <div aria-labelledby="headingSix" class="panel-collapse collapse" id="absExercises" role="tabpanel">
                 <div class="panel-body" style="height: 600px; overflow-y: scroll;">
 
                   <% Exercise.where("muscle_group = 'Abs'").each do |element| %>
-                    <label name="<%= element.id %>" for="workout_exercise_ids_<%= element.id %>"><input type="checkbox" value="<%= element.id %>" name="workout[exercise_ids][]" id="workout_exercise_ids_<%= element.id %>"> <%= element.name %></label><br>
-                    <script type="text/javascript">
-                      $("#workout_exercise_ids_<%= element.id %>").click(function() {
+                  <label for="workout_exercise_ids_<%= element.id %>" name="<%= element.id %>"><input id="workout_exercise_ids_<%= element.id %>" name="workout[exercise_ids][]" type="checkbox" value="<%= element.id %>">
+                    <%= element.name %></label><br>
+                  <script type="text/javascript">
+                    $("#workout_exercise_ids_<%= element.id %>")
+                      .click(function () {
 
                         var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
                         if ($(this).is(':checked')) {
                           $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
                         } else {
-                          $(this).siblings('.sets_and_reps').remove('.sets_and_reps')
+                          $(this).siblings('.sets_and_reps')
+                            .remove('.sets_and_reps')
                         }
                       })
-                    </script>
-                       <script type="text/javascript">
-                      var headings = $('#accordion .panel-heading');
-                      headings.click(function(){
-                         var $this = $(this);
-                         setTimeout(function(){
+                  </script>
+                  <script type="text/javascript">
+                    var headings = $('#accordion .panel-heading');
+                    headings
+                      .click(function () {
+                        var $this = $(this);
+                        setTimeout(function () {
                           $('html,body').scrollTop($this.offset().top);
-                        },500);
+                        }, 500);
                       });
                   </script>
                   <% end %>
@@ -237,12 +279,11 @@
             </div>
           </div>
 
-            <div class="actions"><br><%= f.submit "Create Your Workout!", class: "btn btn-primary" %></div>
-          <% end %>
-            <h3><%= link_to 'Back', workouts_path %></h3>
         </div>
-
       </div>
+      <div align="center" class="actions" style="margin-bottom:15px;"><br><%= f.submit "Create Your Workout!", class: "btn btn-primary btn-lg" %></div>
+      <% end %>
+    </div>
   </div>
-  <div class="col-md-3"></div>
+
 </div>

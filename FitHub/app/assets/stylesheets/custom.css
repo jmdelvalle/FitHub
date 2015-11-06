@@ -86,3 +86,15 @@ li {
 .panel-heading {
   background-color: #3c9ce7;
 }
+
+.btn-primary {
+  background-color: #3c9ce7;
+}
+
+#name-input .form-control {
+  width: 70% !important;
+}
+
+#workouts-input .form-control {
+  width: 30% !important;
+}

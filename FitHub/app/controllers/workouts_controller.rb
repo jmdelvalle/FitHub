@@ -116,7 +116,7 @@ class WorkoutsController < ApplicationController
     Like.where(:workout_id => @workout.id).destroy_all
 
     respond_to do |format|
-      format.html { redirect_to my_workouts_url, notice: 'Workout was successfully destroyed.' }
+      format.html { redirect_to my_workouts_url, notice: 'Workout was successfully deleted.' }
       format.json { head :no_content }
     end
   end
