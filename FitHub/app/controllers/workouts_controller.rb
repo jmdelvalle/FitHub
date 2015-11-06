@@ -88,6 +88,13 @@ class WorkoutsController < ApplicationController
   # PATCH/PUT /workouts/1
   # PATCH/PUT /workouts/1.json
   def update
+    if params[:details]
+    #update up the sets and reps for this particular workout
+    SetsAndRep.where(:workout_id => @workout.id).delete_all
+      params[:details].each do |data|
+        SetsAndRep.create(:workout_id => @workout.id, :exercise_id => data[:ex_num].to_i, :sets => data[:sets].to_i, :reps => data[:reps].to_i)
+      end
+    end
     respond_to do |format|
       if @workout.update(workout_params) && @workout.user_id == current_user.id
         format.html { redirect_to @workout, notice: 'Workout was successfully updated.' }

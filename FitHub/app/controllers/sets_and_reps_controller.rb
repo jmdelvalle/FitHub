@@ -40,6 +40,7 @@ class SetsAndRepsController < ApplicationController
   # PATCH/PUT /sets_and_reps/1
   # PATCH/PUT /sets_and_reps/1.json
   def update
+    binding.pry
     respond_to do |format|
       if @sets_and_rep.update(sets_and_rep_params)
         format.html { redirect_to @sets_and_rep, notice: 'Sets and rep was successfully updated.' }
