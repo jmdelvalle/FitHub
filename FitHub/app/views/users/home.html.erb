@@ -35,6 +35,19 @@
         <h4>Workout Challenges: <%= @recent_workout.challenges %></h4>
         <h3><%= link_to "Check Out This Workout!", @recent_workout %></h3>
       </div>
+
+      <div class="well well-sm">
+        <h2> For <%= Time.now.strftime("%A")%>, these are the workouts you have scheduled </h2>
+
+        <% current_user.workouts.each do |workout| %>
+          <% workout.weekdays.each do |day| %>
+            <% if day.name == Time.now.strftime("%A") %>
+              <%= link_to "#{workout.name}", workout, class: 'btn btn-primary' %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
       <div class="well well-sm">
         <h2>These are the gyms you have joined!</h2>
         <% current_user.gyms.each do |gym| %>
