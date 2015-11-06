@@ -6,105 +6,132 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
+body {
+  background: #3c9ce7 !important;
+}
 
-  body { background: #3c9ce7 !important;}
-  .navbar-default {
-    background-color: #3c9ce7;
-    border-color: #368CD0;
-  }
-  .navbar-default .navbar-brand {
+/*.navbar-default {
+    body { background: #d1d1d1 !important;
+  }*/
+
+.lead_title {
+  font-family: Oswald, Helvetica, sans-serif;
+  font-size: 80px;
+  color: #DDCCEE;
+}
+.container-full {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  min-height: auto;
+  background-color: #110022;
+  color: #eee;
+  overflow: hidden;
+}
+.container-full a {
+  color: rgb(255, 255, 255);
+  ;
+  text-decoration: none;
+}
+.btn-block {
+  background-color: #3c9ce7;
+  max-width: 25%;
+  margin: auto;
+}
+.v-center {
+  margin-top: 7%;
+}
+.navbar-default {
+  background-color: rgba(60, 156, 231, 0.9);
+  /*border-color: rgba(60, 156, 231, 0.3);*/
+}
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #f2f2f2;
+}
+.navbar-default .navbar-text {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #f2f2f2;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #f2f2f2;
+  background-color: #3c9ce7;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #f2f2f2;
+  background-color: #3c9ce7;
+}
+.navbar-default .navbar-toggle {
+  border-color: #3c9ce7;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #3c9ce7;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #3c9ce7;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border-color: #ffffff;
+}
+.navbar-default .navbar-link {
+  color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+  color: rgb(0, 0, 0);
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #ffffff;
   }
-  .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-    color: #f2f2f2;
-  }
-  .navbar-default .navbar-text {
-    color: #ffffff;
-  }
-  .navbar-default .navbar-nav > li > a {
-    color: #ffffff;
-  }
-  .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    color: #f2f2f2;
-  }
-  .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color: #f2f2f2;
-    background-color: #3c9ce7;
-  }
-  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    color: #f2f2f2;
-    background-color: #3c9ce7;
-  }
-  .navbar-default .navbar-toggle {
-    border-color: #3c9ce7;
-  }
-  .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: #3c9ce7;
-  }
-  .navbar-default .navbar-toggle .icon-bar {
-    background-color: #3c9ce7;
-  }
-  .navbar-default .navbar-collapse,
-  .navbar-default .navbar-form {
-    border-color: #ffffff;
-  }
-  .navbar-default .navbar-link {
-    color: #ffffff;
-  }
-  .navbar-default .navbar-link:hover {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #696d6a;
   }
-
-  @media (max-width: 767px) {
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-      color: #ffffff;
-    }
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-      color: #696d6a;
-    }
-    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-      color: #696d6a;
-      background-color: #3c9ce7;
-    }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #696d6a;
+    background-color: #3c9ce7;
   }
-
-.panel-default>.panel-heading{
+}
+.panel-default>.panel-heading {
   color: #ffffff;
   background-color: #3c9ce7;
   border-color: #368CD0;
 }
-textarea{
+textarea {
   min-width: 90%;
   max-width: 90%;
   max-height: auto;
   min-height: 175px;
 }
 #centered_div {
-    margin:auto;
-    width:60em;
-    height:20em;
-    text-align: center;
-    vertical-align: middle;
+  margin: auto;
+  width: 60em;
+  height: 20em;
+  text-align: center;
+  vertical-align: middle;
 }
-
-#medium_size{
+#medium_size {
   width: 310px;
   height: 80px;
 }
-
-.hero{
-    color: #3c9ce7;
-    z-index: 100;
-    position: relative;
-    height: 500px;
-    background-position: 50% 50%;
-    border: 2px solid;
-    border-color: #368CD0;
-    background-size: cover;
-  background-image: url("http://www.kinkajou.net/wallpaper/wallpaper/wallpaper-for-bodybuilders-weightlifters-motivatio-wallpaper-weightlifting-wallpapers-borders-hd-for-phone-chicago-abyss-removal-maker-magazine-wide-calculator.jpg");
+.hero {
+  opacity: 0.85;
+  z-index: 100;
+  position: relative;
+  height: 500px;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('http://www.kinkajou.net/wallpaper/wallpaper/wallpaper-for-bodybuilders-weightlifters-motivatio-wallpaper-weightlifting-wallpapers-borders-hd-for-phone-chicago-abyss-removal-maker-magazine-wide-calculator.jpg');
 }
 
-.hero .about{
+/*.hero .about{
       font-family: 'Open Sans', sans-serif;
   padding: 20px;
     border: 1px solid;
@@ -118,11 +145,13 @@ textarea{
     position: relative;
     font-size: 1rem;
     text-align: center;
-}
- #fitblue{
+}*/
+
+#fitblue {
   color: #368CD0;
- }
- #fitbackground{
+}
+#fitbackground {
+  padding-top: 20px;
   background-color: #368CD0;
   color: #ffffff;
- }
+}
