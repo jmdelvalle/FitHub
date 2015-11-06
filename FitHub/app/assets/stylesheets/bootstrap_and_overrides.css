@@ -6,7 +6,8 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-  /*body { background: #d1d1d1 !important;}*/
+
+  body { background: #d1d1d1 !important;}
 
 
   .lead_title {
@@ -48,7 +49,7 @@
     color: #ffffff;
   }
   .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-    color: #696d6a;
+    color: #f2f2f2;
   }
   .navbar-default .navbar-text {
     color: #ffffff;
@@ -57,14 +58,14 @@
     color: #ffffff;
   }
   .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    color: #696d6a;
+    color: #f2f2f2;
   }
   .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color: #696d6a;
+    color: #f2f2f2;
     background-color: #3c9ce7;
   }
   .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    color: #696d6a;
+    color: #f2f2f2;
     background-color: #3c9ce7;
   }
   .navbar-default .navbar-toggle {
@@ -74,7 +75,7 @@
     background-color: #3c9ce7;
   }
   .navbar-default .navbar-toggle .icon-bar {
-    background-color: #ffffff;
+    background-color: #3c9ce7;
   }
   .navbar-default .navbar-collapse,
   .navbar-default .navbar-form {

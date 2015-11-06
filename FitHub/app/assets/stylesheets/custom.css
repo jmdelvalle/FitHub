@@ -1,4 +1,62 @@
-.myContainer {
-  margin-left: 20px;
-  margin-right: 25px;
+.page-wrapper {
+  padding-top: 70px !important;
+}
+
+a {
+  color: #fff;
+}
+
+.sidebar ul li a:hover {
+    background-color: #3284c5;
+    color: #eee;
+}
+
+.sidebar ul li a:focus {
+  background-color: #3284c5;
+  color: #eee;
+}
+
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+  background-color: #3284c5;
+  color: #eee;
+}
+
+.navbar-top-links li a:hover, .navbar-top-links li a:focus {
+  background-color: #3284c5;
+  color: #eee;
+}
+
+.dropdown-menu .fa {
+  color: black;
+}
+
+.dropdown-menu a:hover .fa {
+  color: white;
+}
+
+.form-control {
+  width: 25%
+}
+
+
+#page-body {
+  padding-top: 20px;
+}
+
+.btn-outline:hover {
+  background-color: #3c9ce7;
+}
+
+li {
+  text-decoration: none;
+}
+
+#black-icon {
+  color: black;
+}
+
+.dropdown-menu {
+  margin: 0px 0px 0px;
+  border-radius: 0px;
 }
