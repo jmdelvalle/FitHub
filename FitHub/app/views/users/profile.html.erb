@@ -6,37 +6,15 @@
 <%= display_status("danger", "alert").html_safe %>
 <% end %>
 
-<div align="center">
+<div style="margin-left:100px">
   <h1><%= current_user.name %></h1><br>
 </div>
 <div class="row">
-  <div class="col-md-3">
-    <div class="panel panel-primary">
-      <div class="panel-heading">Gyms you have joined!</div>
-      <div class="panel-body">
-        <ul>
-          <% current_user.gyms.each do |gym| %>
-          <%= link_to(gym) do %>
-          <h4><%= gym.name %></h4>
-          <% end %>
-          <%= gym.address %><br>
-          <% if gym.joined_gyms(current_user) %>
-          <%= form_for gym.joined_gyms(current_user), method: :delete do |f| %>
-          <h4><%= f.submit "Unfollow This Gym", class: "btn btn-primary btn-xs"%></h4>
-          <% end %>
-          <% end %>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
+  <div class="col-md-8" style="margin-left:40px">
     <div class="panel panel-default">
       <div class="panel-body">
         <div align="center">
-          <h2>
-            <i class="fa fa-bar-chart" id="black-icon"></i>
-            Your Personal Stats</h2>
+          <h2><i class="fa fa-bar-chart" id="black-icon"></i> Your Personal Stats</h2>
           <h5>Current Body Weight:
             <%= current_user.c_bodyweight %>
             lbs<br></h5>
@@ -114,6 +92,25 @@
           <ul>
             <% for user in current_user.inverse_friends %>
             <%= user.name %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">Gyms you have joined!</div>
+        <div class="panel-body">
+          <ul>
+            <% current_user.gyms.each do |gym| %>
+            <%= link_to(gym) do %>
+            <h4><%= gym.name %></h4>
+            <% end %>
+            <%= gym.address %><br>
+            <% if gym.joined_gyms(current_user) %>
+            <%= form_for gym.joined_gyms(current_user), method: :delete do |f| %>
+            <h4><%= f.submit "Unfollow This Gym", class: "btn btn-primary btn-xs"%></h4>
+            <% end %>
+            <% end %>
             <% end %>
           </ul>
         </div>

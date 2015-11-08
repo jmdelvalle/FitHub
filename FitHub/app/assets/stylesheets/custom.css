@@ -1,5 +1,5 @@
-.page-wrapper {
-  padding-top: 70px !important;
+#page-wrapper {
+  background-color: #f7f7f7 !important;
 }
 
 a {
@@ -97,4 +97,18 @@ li {
 
 #workouts-input .form-control {
   width: 30% !important;
+}
+
+footer {
+  margin-bottom: -50px;
+}
+
+.jumbotron {
+  overflow: hidden;
+  height: 300px;
+  background-color: #424242;
+}
+
+.footer {
+  margin-bottom: 0;
 }

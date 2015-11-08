@@ -8,37 +8,54 @@
 </div>
 <% end %>
 
-
 <% if @followed_workouts.count == 1 %>
-  <center><h1>You have followed <%= @followed_workouts.count %> workout so far!</h1></center><br>
+<center>
+  <h1>You have followed
+    <%= @followed_workouts.count %>
+    workout so far!</h1>
+</center><br>
 <% else %>
-  <center><h1>You have followed <%= @followed_workouts.count %> workouts so far!</h1></center><br>
+<center>
+  <h1>You have followed
+    <%= @followed_workouts.count %>
+    workouts so far!</h1>
+</center><br>
 <% end %>
 
 <% @followed_workouts.each do |workout| %>
 
-  <div class="row">
-    <div align="center">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <div class="well well-sm">
-
-          <h3>Created By: </h3><h4><%= workout.creator %></h4>
-          <h3>Workout: </h3><h4><%= workout.name %></h4>
-          <h3>Category: </h3><h4><%= workout.category %></h4>
-          <h3>Description of Workout: </h3><h4><%= workout.description %></h4>
-          <h3>Challenges: </h3><h4><%= workout.challenges %></h4>
+<div class="row">
+  <div align="center">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>Created By:
+          </h3>
+          <h4><%= workout.creator %></h4>
+          <h3>Workout:
+          </h3>
+          <h4><%= workout.name %></h4>
+          <h3>Category:
+          </h3>
+          <h4><%= workout.category %></h4>
+          <h3>Description of Workout:
+          </h3>
+          <h4><%= workout.description %></h4>
+          <h3>Challenges:
+          </h3>
+          <h4><%= workout.challenges %></h4>
           <h4><%= link_to 'Show', workout %></h4>
 
           <% if workout.followed_workouts(current_user) %>
-            <%= form_for workout.followed_workouts(current_user), method: :delete do |f| %>
-            <h4><%= f.submit "Unfollow This Workout", :class => "btn btn-primary"%></h4>
-            <% end %>
+          <%= form_for workout.followed_workouts(current_user), method: :delete do |f| %>
+          <h4><%= f.submit "Unfollow This Workout", :class => "btn btn-primary"%></h4>
           <% end %>
-
+          <% end %>
         </div>
       </div>
-      <div class="col-md-3"></div>
     </div>
+    <div class="col-md-3"></div>
   </div>
- <% end %>
+</div>
+<% end %>

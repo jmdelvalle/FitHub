@@ -50,8 +50,9 @@
 </center>
 <% else %>
 <center>
-  <h1>All Workouts Created On FitHub</h1>
+  <h2>All Workouts Created On FitHub</h2>
 </center>
+<div class="panel panel-default" style="min-height:700px;">
 <% if @workouts.count == 1 %>
 <center>
   <h2>People like you have created
@@ -111,5 +112,6 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 <% end %>
