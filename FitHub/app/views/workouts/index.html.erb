@@ -29,7 +29,7 @@
             </tr>
             <% @workouts.each do |workout| %>
             <tr>
-              <td><%= link_to workout.name, workout %></td>
+              <td><%= link_to workout.name, workout, class: "btn btn-primary btn-xs" %></td>
               <td><%= workout.category %></td>
               <td><%= workout.creator %></td>
               <td>
@@ -97,7 +97,7 @@
             </tr>
             <% @workouts.each do |workout| %>
             <tr>
-              <td><%= link_to workout.name, workout %></td>
+              <div style="color:black"><td><%= link_to workout.name, workout, class: "btn btn-primary btn-xs" %></td></div>
               <td><%= workout.category %></td>
               <td><%= workout.creator %></td>
               <td>

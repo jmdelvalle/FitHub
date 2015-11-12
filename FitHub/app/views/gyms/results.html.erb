@@ -9,7 +9,7 @@
           <div align="center">
             <h4><%= element["name"] %></h4>
             <h4><%= gym_address %></h4>
-            <h4><%= link_to "Map", "http://maps.google.com/?q=#{gym_address}" %></h4>
+            <h4><%= link_to "Map", "http://maps.google.com/?q=#{gym_address}", class: "btn btn-primary btn-xs" %></h4>
             <%= form_for(Gym.new, method: :post) do |f| %>
               <%= f.hidden_field :name, :value => element.name %>
               <%= f.hidden_field :address, :value => gym_address %>

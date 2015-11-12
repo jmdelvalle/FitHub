@@ -89,7 +89,7 @@
                   <script type="text/javascript">
                     $("#workout_exercise_ids_<%= element.id %>")
                       .click(function () {
-                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="hidden" name="details[][ex_num]" value ="<%=element.id %>"><input type="text" name="details[][sets]" id="details_sets" > Number of Reps: <input type="text" name="details[][reps]" id="details_reps" ></div>'
+                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br><input type="hidden" name="details[][ex_num]" value ="<%=element.id %>">Number of Sets: <input type="text" name="details[][sets]" id="details_sets" ><br> Number of Reps: <input type="text" name="details[][reps]" id="details_reps" ></div>'
                         if ($(this).is(':checked')) {
                           $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
                         } else {
@@ -121,7 +121,7 @@
                   <script type="text/javascript">
                     $("#workout_exercise_ids_<%= element.id %>")
                       .click(function () {
-                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br><input type="hidden" name="details[][ex_num]" value ="<%=element.id %>">Number of Sets: <input type="text" name="details[][sets]" id="details_sets" ><br> Number of Reps: <input type="text" name="details[][reps]" id="details_reps" ></div>'
                         if ($(this).is(':checked')) {
                           $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
                         } else {
@@ -153,7 +153,7 @@
                   <script type="text/javascript">
                     $("#workout_exercise_ids_<%= element.id %>")
                       .click(function () {
-                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br><input type="hidden" name="details[][ex_num]" value ="<%=element.id %>">Number of Sets: <input type="text" name="details[][sets]" id="details_sets" ><br> Number of Reps: <input type="text" name="details[][reps]" id="details_reps" ></div>'
                         if ($(this).is(':checked')) {
                           $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
                         } else {
@@ -185,7 +185,7 @@
                   <script type="text/javascript">
                     $("#workout_exercise_ids_<%= element.id %>")
                       .click(function () {
-                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br><input type="hidden" name="details[][ex_num]" value ="<%=element.id %>">Number of Sets: <input type="text" name="details[][sets]" id="details_sets" ><br> Number of Reps: <input type="text" name="details[][reps]" id="details_reps" ></div>'
                         if ($(this).is(':checked')) {
                           $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
                         } else {
@@ -217,7 +217,7 @@
                   <script type="text/javascript">
                     $("#workout_exercise_ids_<%= element.id %>")
                       .click(function () {
-                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br><input type="hidden" name="details[][ex_num]" value ="<%=element.id %>">Number of Sets: <input type="text" name="details[][sets]" id="details_sets" ><br> Number of Reps: <input type="text" name="details[][reps]" id="details_reps" ></div>'
                         if ($(this).is(':checked')) {
                           $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
                         } else {
@@ -250,7 +250,7 @@
                     $("#workout_exercise_ids_<%= element.id %>")
                       .click(function () {
 
-                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br>Number of Sets: <input type="text" name="details[sets][]" id="details_sets" > Number of Reps: <input type="text" name="details[reps][]" id="details_reps" ></div>'
+                        var html = '<div class="sets_and_reps"><img src="<%=element.pic_left %>" style="max-width:45%;height:auto"> <img src="<%= element.pic_right.gsub("1.jpg", "2.jpg") %>" style="max-width:45%;height:auto;"><br><br><input type="hidden" name="details[][ex_num]" value ="<%=element.id %>">Number of Sets: <input type="text" name="details[][sets]" id="details_sets" ><br> Number of Reps: <input type="text" name="details[][reps]" id="details_reps" ></div>'
                         if ($(this).is(':checked')) {
                           $("label[for='workout_exercise_ids_<%= element.id %>']").append(html)
                         } else {
