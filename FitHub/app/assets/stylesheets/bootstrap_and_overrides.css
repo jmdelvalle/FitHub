@@ -121,6 +121,9 @@ textarea {
   width: 310px;
   height: 80px;
 }
+.well {
+  background-color: #fff;
+}
 .hero {
   opacity: 0.85;
   z-index: 100;
@@ -130,7 +133,19 @@ textarea {
   background-size: cover;
   background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('http://www.kinkajou.net/wallpaper/wallpaper/wallpaper-for-bodybuilders-weightlifters-motivatio-wallpaper-weightlifting-wallpapers-borders-hd-for-phone-chicago-abyss-removal-maker-magazine-wide-calculator.jpg');
 }
+.panel-primary .fa{
+  color: #000000
+}
 
+a h3{
+  color: #3c9ce7
+}
+h3 a{
+  color: #3c9ce7
+}
+td a{
+  color: #3c9ce7
+}
 /*.hero .about{
       font-family: 'Open Sans', sans-serif;
   padding: 20px;

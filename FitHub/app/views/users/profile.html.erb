@@ -7,13 +7,14 @@
 <% end %>
 
 <div style="margin-left:100px">
-  <h1><%= current_user.name %></h1><br>
+
 </div>
 <div class="row">
   <div class="col-md-8" style="margin-left:40px">
     <div class="panel panel-default">
       <div class="panel-body">
         <div align="center">
+          <h1><%= current_user.name %></h1><br>
           <h2><i class="fa fa-bar-chart" id="black-icon"></i> Your Personal Stats</h2>
           <h5>Current Body Weight:
             <%= current_user.c_bodyweight %>
@@ -53,7 +54,7 @@
   </div>
   <div class="row">
     <div class="col-md-3">
-      <div class="panel panel-primary">
+      <div class="panel panel-primary" id= "friends_panel">
         <div class="panel-heading">Friends</div>
         <div class="panel-body">
           <% if current_user.friendships.count == 1 %>
@@ -103,7 +104,7 @@
           <ul>
             <% current_user.gyms.each do |gym| %>
             <%= link_to(gym) do %>
-            <h4><%= gym.name %></h4>
+            <h4 style="color: #3c9ce7;"><%= gym.name %></h4>
             <% end %>
             <%= gym.address %><br>
             <% if gym.joined_gyms(current_user) %>

@@ -40,7 +40,10 @@
       <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
         <span class="sr-only">Toggle navigation</span>
       </button>
-      <%= link_to "FitHub", root_url, class: "navbar-brand" %>
+      <% if !current_user %>
+        <%= link_to "FitHub", root_url, class: "navbar-brand" %>
+      <% end %>
+
     </div>
     <!-- /.navbar-header -->
     <% if current_user %>

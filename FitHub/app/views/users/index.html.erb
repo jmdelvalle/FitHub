@@ -14,11 +14,12 @@
         <div class="container-fluid" id="medium_size">
           <div class="well well-sm">
             <center>
-              <h4><%= user.name %><br>
+              <h4><%= user.name %></h4>
                 <% if current_user.is_friend?(user.id) %>
                   <small>Added!</small>
                 <% else %>
-                  <small><%= link_to "Follow", friendships_path(:friend_id => user), class:"btn btn-primary btn-xs", :method => :post %></small></h4>
+                  <small><%= link_to "Follow", friendships_path(:friend_id => user), class:"btn btn-primary ", :method => :post %></small>
+
                 <% end %>
             </center>
           </div>
